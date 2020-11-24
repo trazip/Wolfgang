@@ -2,19 +2,24 @@ class ScoresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR composer ILIKE :query"
-      @scores = Score.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @scores = policy_scope(Score)
-    end
+    # if params[:query].present?
+    #   sql_query = "title ILIKE :query OR composer ILIKE :query"
+    #   @scores = Score.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    @scores = policy_scope(Score)
+    # end
     # @genres = Score.genres.all
     # @composers = Score.composers.all
   end
 
+  def new
+    @collection = Collection.create(title: 'My first collection', user: current_user) if current_user.collections.empty?
+    @score = Score.new
+    authorize @score
+  end
+
   def create
     @score = Score.new(score_params)
-    @score.user = current_user
     authorize @score
 
     if @score.save
@@ -28,8 +33,9 @@ class ScoresController < ApplicationController
     @scores = Score.where(score_id: @score.id)
   end
 
-  def import
-    @score = Score.new
-    authorize @score
+  private
+
+  def score_params
+    params.require(:score).permit(:title, :composer, :genre, :score_creation_date, :collection_id, :file)
   end
 end
