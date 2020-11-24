@@ -1,0 +1,33 @@
+input.searchbar {
+    opacity: 1;
+    position: relative;
+    vertical-align: top;
+    appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 4px;
+    box-shadow: rgba(0,0,0,.2) 0 1px 10px,rgba(0,0,0,.1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #8f94ad;
+    cursor: text;
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    height: 56px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 1;
+    outline: none;
+    overflow: visible;
+    padding: 6px 48px 6px 16px;
+    position: relative;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    vertical-align: top;
+    width: 100%;
+  }
+  
+  .search-row {
+    margin-top: 50px;
+    align-items: center;
+  }

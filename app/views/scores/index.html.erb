@@ -1,1 +1,17 @@
-<h1> Home !</h1>
+<h2>Our Library</h2>
+<p>Filter by</p>
+
+<div class="row search-row">
+        <div class="col-10">
+       <%= form_tag scores_path, method: :get do %>
+       <%= text_field_tag :query,
+        params[:query],
+        class: "form-control searchbar",
+        placeholder: "Title, Composer ..."
+       %>
+      </div>
+      <div class="col-2">
+      <%= submit_tag "Search", class: "login-btn" %>
+      <% end %>
+      </div>
+    </div>
