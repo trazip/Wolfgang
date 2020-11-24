@@ -1,3 +1,3 @@
 class Composer < ApplicationRecord
-  has_many :score
+  has_many :scores
 end
