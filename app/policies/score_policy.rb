@@ -12,4 +12,8 @@ class ScorePolicy < ApplicationPolicy
   def new?
     return true
   end
+
+   def show?
+    return true
+  end
 end

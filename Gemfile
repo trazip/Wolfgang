@@ -37,6 +37,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
 
+gem 'pdf-reader'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

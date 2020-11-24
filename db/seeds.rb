@@ -21,7 +21,7 @@ nathalie.save!
 puts "🐱‍🏍🐱‍🏍🐱‍🏍"
 
 puts "Pierre's first collection ✨"
-pierre_first_collection = Collection.new(private: false)
+pierre_first_collection = Collection.new(title: 'My collection', private: false)
 pierre_first_collection.user = pierre
 pierre_first_collection.save!
 

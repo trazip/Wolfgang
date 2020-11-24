@@ -1,9 +1,9 @@
 <%= simple_form_for @score do |f| %>
   <%= f.input :title %>
-  <%= f.input :composer %>
+  <%= f.association :composer %>
   <%= f.input :genre %>
   <%= f.input :score_creation_date %>
-  <%= f.association :collection, collection: current_user.collections, selected: current_user.collections.first.id %>
+  <%= f.association :collection, collection: current_user.collections,  selected: current_user.collections.first.id %>
   <%= f.input :file, as: :file %>
   <%= f.submit 'Upload score', class: "btn btn-warning" %>
 <% end %>
