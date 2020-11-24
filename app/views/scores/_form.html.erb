@@ -3,6 +3,7 @@
   <%= f.input :composer %>
   <%= f.input :genre %>
   <%= f.input :score_creation_date %>
-  <%= f.input :photo, as: :file %>
+  <%= f.association :collection, collection: current_user.collections, selected: current_user.collections.first.id %>
+  <%= f.input :file, as: :file %>
   <%= f.submit 'Upload score', class: "btn btn-warning" %>
 <% end %>
