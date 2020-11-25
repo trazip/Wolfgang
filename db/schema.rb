@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_150037) do
+ActiveRecord::Schema.define(version: 2020_11_25_150212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_150037) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "composer_id", null: false
+    t.integer "page_count"
     t.index ["collection_id"], name: "index_scores_on_collection_id"
     t.index ["composer_id"], name: "index_scores_on_composer_id"
   end
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_150037) do
     t.string "username", default: ""
     t.string "first_name", default: ""
     t.string "last_name", default: ""
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

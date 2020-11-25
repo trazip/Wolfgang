@@ -39,6 +39,9 @@ gem 'pundit'
 
 gem 'pdf-reader'
 
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
