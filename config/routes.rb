@@ -21,10 +21,3 @@ Rails.application.routes.draw do
 
   end
 end
-
-
-    #member do
-    #  post "import", to: "scores#import"
-    #end
-    #resources :pages, only: [:show]
-    #end
