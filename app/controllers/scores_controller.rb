@@ -37,6 +37,12 @@ class ScoresController < ApplicationController
     authorize @score
   end
 
+  def viewer
+    @score = Score.find(params[:id])
+    @page = params[:page_id] ? Page.find(params[:page_id]) : @score.pages.first
+    skip_authorization
+  end
+
   private
 
   def import(score)
