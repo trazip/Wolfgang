@@ -1,1 +1,3 @@
-<h2> <%= @score.title %></h2>
+<% @scores.each do |score| %>
+<h4><%= score.title %></h4>
+<% end %>
