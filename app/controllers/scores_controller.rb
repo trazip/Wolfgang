@@ -4,14 +4,15 @@ class ScoresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    # if params[:query].present?
-    #   sql_query = "title ILIKE :query OR composer ILIKE :query"
-    #   @scores = Score.where(sql_query, query: "%#{params[:query]}%")
-    # else
+    if params[:query].present?
+      sql_query = " \ 
+      scores.title ILIKE :query \
+      OR composers.name ILIKE :query \ "
+    @scores = policy_scope(Score.joins(:composer).where(sql_query, query: "%#{params[:query]}%"))
+    authorize @scores
+    else
     @scores = policy_scope(Score)
-    # end
-    # @genres = Score.genres.all
-    # @composers = Score.composers.all
+    end
   end
 
   def new
