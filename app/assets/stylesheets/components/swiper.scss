@@ -1,0 +1,43 @@
+/* Swiper CSS */
+.swiper-container {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.swiper-slide {
+  height: 332px !important;
+  width: 590px !important;
+  flex-direction: column;
+  border-radius: 12px;
+  background-size: cover;
+  color: white;
+  cursor: pointer;
+  box-shadow:  rgba(0,0,0,.1) 0 4px 5px !important;
+}
+
+.slide-header {
+  width: 200px;
+}
+
+.subtitle {
+  font-size: 12px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end !important;
+  flex-direction: row-reverse !important;
+}
+.swiper-button-prev {
+  color: black !important;
+  justify-content: flex-end !important;
+  order: 0;
+}
+
+.swiper-button-next {
+  color: black !important;
+  justify-content: flex-end !important;
+  order: 2;
+}
+/* End Swiper CSS */

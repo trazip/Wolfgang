@@ -1,23 +1,137 @@
-<h2>Our Library</h2>
-<p>Filter by</p>
-<div class="row search-row">
+<!-- <div class="row search-row">
   <div class="col-10">
-       <%= form_tag scores_path, method: :get do %>
-       <%= text_field_tag :query,
+       <%#= form_tag scores_path, method: :get do %>
+       <%#= text_field_tag :query,
         params[:query],
         class: "form-control searchbar",
         placeholder: "Title, Composer ..."
        %>
-  </div>
-  <div class="col-2">
-      <%= submit_tag "Search", class: "login-btn" %>
-      <% end %>
-  </div>
+  </div> -->
+ <!--  <div class="col-2">
+      <%#= submit_tag "Search", class: "login-btn" %>
+      <%# end %>
+  </div> -->
 
-  <% @scores.each do |score| %>
-    <% if score.file.attached? %>
-      <%= cl_image_tag score.file.key, :format => :jpg, :page=>1, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% end %>
-</div>
+<!-- </div> -->
 
+  <div class="container-fluid pt-5">
+      <!-- Start Slider Row -->
+        <div class="slider">
+          <div class="headings d-flex align-items-center">
+            <h2 class="text-left py-3">Our featured collections:</h2>
+            <div class="buttons">
+              <!--
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              -->
+            </div>
+          </div>
+          <!-- Slider main container -->
+          <div class="swiper-container s1">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                  <!-- Slides -->
+
+                  <div class="swiper-slide pl-3 py-3 d-flex justify-content-between align-items-start flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://cdn.glitch.com/e0ac0c28-c085-4684-b038-2004cc96dbc4%2FLaLaLand-wallpaper.jpg?v=1606084856055')">
+                      <div class="slide-header">
+                        <span class="subtitle">Selections</span>
+                        <h4>Music from the motion picture soundtrack</h4>
+                      </div>
+                      <div class="slide-footer">
+                        <button class="btn btn-light">Open in the viewer</button>
+                      </div>
+                  </div>
+                  <div class="swiper-slide pl-3 py-3 d-flex justify-content-between align-items-start flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.profession-spectacle.com/wp-content/uploads/2018/01/Wolfgang-Amadeus-Mozart-e1515927539418.jpg')">
+                      <div class="slide-header">
+                        <span class="subtitle">Collection</span>
+                        <h4>Wolfgang Amadeus Mozart piano sonatas</h4>
+                      </div>
+                      <div class="slide-footer">
+                        <button class="btn btn-light">Open in the viewer</button>
+                      </div>
+                  </div>
+                  <div class="swiper-slide pl-3 py-3 d-flex justify-content-between align-items-start flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wrti.org/sites/wrti/files/styles/x_large/public/201905/DaveBrubeckGetty1300px.jpg')">
+                      <div class="slide-header">
+                        <span class="subtitle">Collection</span>
+                        <h4>Remembering Jazz pianist Dave Brubeck </h4>
+                      </div>
+                      <div class="slide-footer">
+                        <button class="btn btn-light">Open in the viewer</button>
+                      </div>
+                  </div>
+                  <div class="swiper-slide pl-3 py-3 d-flex justify-content-between align-items-start flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wrti.org/sites/wrti/files/styles/x_large/public/201905/DaveBrubeckGetty1300px.jpg')">
+                      <div class="slide-header">
+                        <span class="subtitle">Collection</span>
+                        <h4>Remembering Jazz pianist Dave Brubeck </h4>
+                      </div>
+                      <div class="slide-footer">
+                        <button class="btn btn-light">Open in the viewer</button>
+                      </div>
+                  </div>
+                  <div class="swiper-slide pl-3 py-3 d-flex justify-content-between align-items-start flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wrti.org/sites/wrti/files/styles/x_large/public/201905/DaveBrubeckGetty1300px.jpg')">
+                      <div class="slide-header">
+                        <span class="subtitle">Collection</span>
+                        <h4>Remembering Jazz pianist Dave Brubeck </h4>
+                      </div>
+                      <div class="slide-footer">
+                        <button class="btn btn-light">Open in the viewer</button>
+                      </div>
+                  </div>
+                  <div class="swiper-slide pl-3 py-3 d-flex justify-content-between align-items-start flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.wrti.org/sites/wrti/files/styles/x_large/public/201905/DaveBrubeckGetty1300px.jpg')">
+                      <div class="slide-header">
+                        <span class="subtitle">Collection</span>
+                        <h4>Remembering Jazz pianist Dave Brubeck </h4>
+                      </div>
+                      <div class="slide-footer">
+                        <button class="btn btn-light">Open in the viewer</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <!-- End Slider main container -->
+      </div>
+      <!-- End Slider Row -->
+  </div>
+  <div class="container mb-5">
+      <div class="headings d-flex flex-column pt-3 pb-5">
+        <h2 class="text-left py-3">Our library:</h2>
+        <div class="d-flex flex-row">
+          <h3>Filter by:</h3>
+          <button class="btn-ghost ml-3 mr-1">Composer</button>
+          <button class="btn-ghost mx-1">Genre</button>
+          <button class="btn-ghost mx-1">Period</button>
+        </div>
+      </div>
+      <div class="grid-container">
+        <% @scores.each do |score| %>
+          <div class="movie-card">
+            <%# if score.file.attached? %>
+              <div class="movie-details" style="background-image: <%#= cl_image_path score.file.key, :format => :jpg, :page=>1, height: 180, width: 140, crop: :fill %>">
+                <span>Name</span>
+                <h4><%= score.title %></h4>
+              </div>
+          </div>
+          <%# end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-dark">Load more</a>
+      </div>
+    </div>
+    <!-- Swiper JS  -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+   <!-- Initialize Swiper -->
+    <script>
+      const swiper1 = new Swiper('.s1', {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        mousewheel: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>

@@ -8,3 +8,21 @@
     padding: 0 30px;
     text-decoration: none;
   }
+/* Start btn */
+
+.btn-ghost {
+  color: black;
+  border: 1px solid black;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: medium;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  background-color: transparent;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+/* End btn */

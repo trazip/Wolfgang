@@ -3,6 +3,7 @@ require "open-uri"
 puts "Seed Started"
 puts "Destroying all users, scores, pages and collections 😱😱😱"
 User.destroy_all
+Composer.destroy_all
 Score.destroy_all
 Page.destroy_all
 Collection.destroy_all
