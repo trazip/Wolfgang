@@ -5,7 +5,7 @@ class ScoresController < ApplicationController
 
   def index
     if params[:query].present?
-      sql_query = " \ 
+      sql_query = " \
       scores.title ILIKE :query \
       OR composers.name ILIKE :query \ "
     @scores = policy_scope(Score.joins(:composer).where(sql_query, query: "%#{params[:query]}%"))
