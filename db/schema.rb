@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_150212) do
     t.bigint "page_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "data"
     t.index ["page_id"], name: "index_annotations_on_page_id"
     t.index ["user_id"], name: "index_annotations_on_user_id"
   end

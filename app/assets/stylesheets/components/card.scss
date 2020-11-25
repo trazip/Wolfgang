@@ -1,0 +1,40 @@
+a {
+  text-decoration: none !important;
+  color: #212529 !important;
+  &:hover{
+      text-decoration: none !important;
+      color: #212529 !important;
+}
+
+}
+.score-card {
+  width: 140px;
+  height: 260px;
+  font-family: system-ui;
+  margin: auto;
+  overflow: hidden;
+  color: #212529 !important;
+  img {
+    background-position: center;
+    background-size: cover;
+    width: 140px;
+    height: 180px;
+    border-radius: 15px;
+  }
+  span {
+    font-size: 13px;
+    line-height: 5px !important;
+  }
+
+  .score-details {
+    h4 {
+      margin: 0px;
+      padding: 0 5px;
+      font-size: 14px !important;
+    }
+  }
+}
+
+
+
+
