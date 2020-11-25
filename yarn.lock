@@ -6531,6 +6531,11 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
+simple-drawing-board@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/simple-drawing-board/-/simple-drawing-board-3.1.2.tgz#399732f3cb5518c0ba8b701f3b6c8edf0c30f308"
+  integrity sha512-lkMXnuNVIcrCAAs53sDfZGZusO/53JS/aa3sgGk/irslf+F16TwS6Kai6zoksxVyM0wh2G4C8ysUsOyaNo7CTw==
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
