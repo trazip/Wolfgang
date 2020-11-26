@@ -24,9 +24,14 @@ class ScoresController < ApplicationController
   def create
     @score = Score.new(score_params)
     authorize @score
+    #ouvrir le fichier, compter le nb de page depuis le parametre file
+    file = open(params[:score][:file])
+    reader = PDF::Reader.new(file)
+
+    @score.page_count = reader.page_count
 
     if @score.save
-      import(@score)
+      ImportScorePagesJob.perform_later(@score)
       redirect_to @score, notice: 'Your score was successfully uploaded.'
     else
       render :new
@@ -45,18 +50,6 @@ class ScoresController < ApplicationController
   end
 
   private
-
-  def import(score)
-    file = open(params[:score][:file])
-    reader = PDF::Reader.new(file)
-
-    reader.page_count.times do |i|
-      url = Cloudinary::Utils.cloudinary_url(score.file.key, page: i + 1)
-      page = Page.new(score: score)
-      page.file.attach(io: open("#{url}.jpg"), filename: 'file')
-      page.save
-    end
-  end
 
   def score_params
     params.require(:score).permit(:title, :composer_id, :genre, :score_creation_date, :collection_id, :file)
