@@ -25,4 +25,21 @@
   opacity: 1;
 }
 
+input[type=file]::-webkit-file-upload-button {
+  border: 1px solid #ffb700;
+  background: #ffb700;
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 2%;
+  padding: 6px 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+  background-color: #ffb700c9;
+  transition: background-color .4s
+}
+
+.form-control-file, .form-control-range {
+  color: #ffb700;
+}
 /* End btn */
