@@ -1,8 +1,9 @@
 <%= simple_form_for @score do |f| %>
   <%= f.input :title %>
   <%= f.association :composer %>
-  <%= f.input :genre %>
-  <%= f.input :score_creation_date %>
+
+  <%= f.input :genre, as: :check_boxes, collection: Score::GENRES, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item form-check-inline' %>
+
   <%= f.association :collection, collection: current_user.collections,  selected: current_user.collections.first.id %>
   <%= f.input :file, as: :file %>
   <%= f.submit 'Upload score', class: "btn btn-warning" %>
