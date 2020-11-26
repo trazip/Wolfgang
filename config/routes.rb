@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get "/viewer", to: 'scores#viewer'
     end
   end
-  resources :collections, only: [:index, :new, :create]
+  resources :collections, only: [:new, :create, :show]
 
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'

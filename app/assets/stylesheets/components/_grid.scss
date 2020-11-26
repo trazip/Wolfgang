@@ -41,3 +41,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
+
+.grid-collection {
+  display: grid;
+  grid-template-columns: 400px 1fr 1fr 1fr;
+  grid-template-rows: 33% 33% 33%;
+}
