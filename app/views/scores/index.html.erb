@@ -84,8 +84,8 @@
         </h2>
         <div class="d-flex ml-3 align-items-center">
            <!-- Search Bar -->
-            <%= form_tag scores_path, method: :get do %>
-              <div class="form-group">
+            <%= form_tag scores_path(anchor: "search-id"), method: :get do %>
+              <div class="form-group" id="search-id">
                 <%= text_field_tag :query,
                 params[:query],
                 class: "searchbar",

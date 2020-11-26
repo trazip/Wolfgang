@@ -9,7 +9,6 @@ class ScoresController < ApplicationController
       scores.title ILIKE :query \
       OR composers.name ILIKE :query \ "
     @scores = policy_scope(Score.joins(:composer).where(sql_query, query: "%#{params[:query]}%"))
-    authorize @scores
     else
     @scores = policy_scope(Score)
     end
