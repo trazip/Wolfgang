@@ -1,5 +1,5 @@
 <%= simple_form_for @score do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title, input_html: { autocomplete: "off" } %>
   <%= f.association :composer %>
 
   <%= f.input :genre, as: :check_boxes, collection: Score::GENRES, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item form-check-inline' %>
