@@ -29,9 +29,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDrawing } from '../plugins/init_drawing';
+import { initSwiper} from '../plugins/init_swiper';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  initSwiper();
   initDrawing();
   // initSelect2();
 });
