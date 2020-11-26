@@ -10,20 +10,17 @@
     <h2><%= @score.composer.name %></h2>
     <h4><%= @score.title %></h4>
     <br>
-    <%= link_to "Open in the viewer", scores_path, class: "login-btn mt-5" %>
+    <%= link_to "Open in the viewer", viewer_score_path(@score), class: "login-btn mt-5" %>
   </div>
 </div>
 
 <div class="card">
-  <div class="card-body"> 
-  <p>??? score description with <strong>relevant info</strong> on the composer ??? </p>
-  <p> <i class="fas fa-music"></i> OPERA </p> 
-  <p> <i class="fas fa-file-alt"></i> Bastien und Bastienne (1768, Vienne)</p>
-  </div> 
-</div>
-
-  <div>
+ <div class="card-body">
+  <h5>Biography</h5> 
+  <p><%= @score.composer.bio %></p>
+    <div>
     <%= link_to "Back to Scores", scores_path, class: "login-btn mt-5" %>
   </div>
-
+ </div>
+</div>
 
