@@ -41,6 +41,26 @@
     left: 50%;
     z-index: 100;
   }
+
+  #tools {
+    border-radius: 30px;
+    box-shadow: rgba(0,0,0,.1) 0 2px 5px;
+    padding: 10px 10px 10px 10px;
+    bottom: -10px;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 100;
+    background-color: white;
+
+    button{
+      background-color: transparent;
+      border: transparent;
+      &:focus {
+        outline:0;
+      }
+    }
+  }
 }
 
 
