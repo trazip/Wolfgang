@@ -1,9 +1,9 @@
-<div class="container-fluid full-height">
+<div class="full-height">
   <div id="viewer" data-page-id="<%= @page.id %>" data-annotation="<%= @page.annotation.data if @page.annotation %>">
-    <%= link_to 'prev', viewer_score_path(@score, params: {page_id: @page.id - 1}), id: "previous"  %>
+    <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.id - 1}), id: "previous"  %>
     <div id="zone">
       <%= cl_image_tag @page.file.key, class: 'score-page' %>
     </div>
-    <%= link_to 'next', viewer_score_path(@score, params: {page_id: @page.id + 1}), id: "next"  %>
+    <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.id + 1}), id: "next"  %>
   </div>
 </div>
