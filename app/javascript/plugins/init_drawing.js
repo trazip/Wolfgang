@@ -1,6 +1,8 @@
 import Rails from '@rails/ujs';
 import {create} from 'simple-drawing-board';
 
+
+
 const initCanvas = (zone) => {
   const height = zone.offsetHeight;
   const width = zone.offsetWidth;
@@ -11,6 +13,7 @@ const initCanvas = (zone) => {
 const initDrawing = () => {
   const zone = document.querySelector('#zone');
   initCanvas(zone);
+
 
   const canvas = document.querySelector('#canvas');
   const viewer = document.querySelector('#viewer');

@@ -10,28 +10,23 @@
     z-index: 99;
   }
   img {
-    position: absolute;
-    height: 100vh;
-    transform: translateX(-50%);
-    left: 50%;
+    height: 100%;
     width: 100%;
+    object-fit: contain;
   }
   #zone {
     position: relative;
-    height: 100vh;
-    transform: translateX(-50%);
-    left: 50%;
-    width: 50%;
+    height: calc(100vh - 111px);
+    width: 100vw;
+    z-index: 1;
+    background: white;
   }
   #previous, #next {
-    width: 25%;
+    width: 15%;
     position: absolute;
     top: 0px;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 6rem;
+    z-index: 2;
   }
   #previous {
     left: 0px;
