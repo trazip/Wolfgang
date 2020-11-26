@@ -13,6 +13,7 @@ class ScoresController < ApplicationController
     else
     @scores = policy_scope(Score)
     end
+    @composers = Composer.all
   end
 
   def new
