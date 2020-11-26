@@ -1,0 +1,11 @@
+<h1> <%= @collection.title %> </h1>
+
+<div class="container-card-main">
+  <div class="container-card">
+    <% @scores.each do |score| %>
+        <div class="card-img" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <h2> <%= link_to score.title, score_path(score) %> </h2>
+        </div>
+    <% end %>
+  </div>
+</div>

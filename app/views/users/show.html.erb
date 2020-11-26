@@ -1,8 +1,17 @@
-<div class="card-collection">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-collection-infos">
-    <h2>Collection name</h2>
-    <p>Collection description with <strong>relevant info</strong> only.</p>
-  </div>
+<div>
+  <% @collections.each do |collection| %>
+    <% if collection.photo.attached? %>
+      <%= cl_image_tag collection.photo.key, height: 252, width: 252, crop: :fill %>
+    <% else %>
+      <div class="card-collection">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-collection-infos">
+          <h2> <%= link_to collection.title, collection_path(collection) %> </h2>
+          <p>Collection description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
 
