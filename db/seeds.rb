@@ -32,7 +32,7 @@ nathalie_first_collection.user = nathalie
 nathalie_first_collection.save!
 
 puts "Birth of Wolfgang Amadeus Mozart 👼 (1756 – 1791)"
-mozart = Composer.new(name: "W.A. Mozart")
+mozart = Composer.new(name: "W.A. Mozart", bio: "Wolfgang Amadeus Mozart (27 January 1756 – 5 December 1791) Le nom officiel de Mozart était : Joannes Chrysostomus Wolfgangus Theophilus Mozart. Il s'est d'ailleurs amusé tout au long de sa vie à déguiser et à déformer son identité en Mozartini, Gangflow (Wolfgang à l'envers), ou encore Trazom… On ne le verra jamais signer Amadeus (mais Amadé), ce prénom ne sera employé qu'après sa mort.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/wolfgang_amadeus_mozart.jpg")].first)
 mozart.picture.attach(io: file, filename: 'wolfgang_amadeus_mozart.jpg', content_type: 'image/jpg')
 mozart.save!
@@ -45,7 +45,7 @@ befraget_mich_ein_zartes_kind.collection = pierre_first_collection
 befraget_mich_ein_zartes_kind.save!
 
 puts "Birth of Giuseppe Verdi 👼 (1813 – 1901)"
-verdi = Composer.new(name: "G. Verdi")
+verdi = Composer.new(name: "G. Verdi", bio: "Giuseppe Fortunino Francesco Verdi (9 or 10 October 1813 – 27 January 1901) En panne d'inspiration, écrasé par les coups du destin, ses deux enfants puis sa femme meurent à quelques mois d'intervalle, le compositeur est au bord du gouffre lorsqu'on lui confie le livret de ce qui va devenir... Nabucco.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/giuseppe_verdi.jpg")].first)
 verdi.picture.attach(io: file, filename: 'giuseppe_verdi.jpg', content_type: 'image/jpg')
 verdi.save!
@@ -57,7 +57,7 @@ che_non_avrebbe_il_misero.collection = pierre_first_collection
 che_non_avrebbe_il_misero.save!
 
 puts "Birth of Justin Hurwitz 👼 (1985 - )"
-hurwitz = Composer.new(name: "J. Hurwitz")
+hurwitz = Composer.new(name: "J. Hurwitz", bio:"Justin Hurwitz (22 January 1985) Il est notamment connu pour ses collaborations avec le cinéaste Damien Chazelle sur les films Whiplash (2014) et La La Land (2016), film pour lequel il obtient deux Oscars en 2017 ")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/justin_hurwitz.jpg")].first)
 hurwitz.picture.attach(io: file, filename: 'justin_hurwitz.jpg', content_type: 'image/jpg')
 hurwitz.save!
@@ -69,7 +69,7 @@ mia_and_Sebastians_theme.collection = pierre_first_collection
 mia_and_Sebastians_theme.save!
 
 puts "Birth of Ella Fitzgerald 👼 (1917 – 1996)"
-fitzgerald = Composer.new(name: "E. Fitzgerald")
+fitzgerald = Composer.new(name: "E. Fitzgerald", bio:"Ella Jane Fitzgerald (April 25, 1917 – June 15, 1996) Elle est considérée comme l'une des plus importantes et célèbres chanteuses de jazz de l'histoire de ce genre musical, avec une tessiture de trois octaves, remarquable pour la pureté de sa voix et sa capacité d'improvisation, particulièrement en scat.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/ella_fitzgerald.jpg")].first)
 fitzgerald.picture.attach(io: file, filename: 'ella_fitzgerald.jpg', content_type: 'image/jpg')
 fitzgerald.save!
@@ -81,7 +81,7 @@ all_of_me.composer = fitzgerald
 all_of_me.save!
 
 puts "Creation of The Cinematic Orchestra 🎉 (1999 - )"
-cinematic_orchestra = Composer.new(name: "The Cinematic Orchestra")
+cinematic_orchestra = Composer.new(name: "The Cinematic Orchestra", bio: "The Cinematic Orchestra est un groupe britannique de nu jazz et downtempo fondé en 1999 par Jason Swinscoe, alors employé de la maison de disques londonienne Ninja Tune.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/cinematic_orchestra.jpg")].first)
 cinematic_orchestra.picture.attach(io: file, filename: 'cinematic_orchestra.jpg', content_type: 'image/jpg')
 cinematic_orchestra.save!
@@ -93,7 +93,7 @@ arrival_of_the_birds.collection = pierre_first_collection
 arrival_of_the_birds.save!
 
 puts "Birth of Erik Satie 👼 (1866 – 1925)"
-satie = Composer.new(name: "E. Satie")
+satie = Composer.new(name: "E. Satie", bio: "Éric Alfred Leslie Satie (17 May 1866 – 1 July 1925) Associé un temps au symbolisme, mais inclassable, il a été reconnu comme précurseur de plusieurs mouvements, dont le surréalisme, le minimalisme, la musique répétitive et le théâtre de l'absurde.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/erik_satie.jpg")].first)
 satie.picture.attach(io: file, filename: 'erik_satie.jpg', content_type: 'image/jpg')
 satie.save!

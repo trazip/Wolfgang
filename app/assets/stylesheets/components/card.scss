@@ -42,7 +42,10 @@ a {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-}
+  margin: 0 50px 0 50px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 12px;
+  }
 
 .card-score img {
   height: 100%;
@@ -68,6 +71,17 @@ a {
   padding: 16px;
 }
 
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 12px;
+  margin: 0 50px 0 50px;
+}
 
 
 
