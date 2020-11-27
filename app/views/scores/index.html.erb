@@ -3,7 +3,7 @@
       <!-- Start Slider Row -->
         <div class="slider">
           <div class="headings d-flex align-items-center">
-            <h2 class="text-left py-3">Our featured collections:</h2>
+            <h2 class="text-left py-3">Our featured collections</h2>
             <div class="buttons">
               <!--
               <div class="swiper-button-prev"></div>
@@ -78,50 +78,23 @@
       <!-- End Slider Row -->
   </div>
   <div class="container mb-5">
-      <div class="headings d-flex flex-row pt-3 pb-5">
-        <h2 class="text-left py-3">
-        <%= link_to 'All Scores', scores_path %>
-        </h2>
-        <div class="d-flex ml-3 align-items-center">
-
-           <!-- Search Bar -->
-
-           <div class="boxContainer">
-            <table class="elementsContainer">
-              <tr>
-                <td>
-
-            <%= simple_form_for :search, url: scores_path, method: :get, remote: true do |f| %>
-              <%= f.input :query, label: false, placeholder: "merci", input_html: {id:"search", class: "searchbar"} %>
-              </td>
-              <td>
-              <%= button_tag type: "submit", class: "button-postfix", id: "submit" do %>
-                <i class="fas fa-search"></i>
-              <% end %>
-              </td>
-              <%#= f.submit "Submit", id: "submit" %>
-
-
-            <% end %>
-            </table>
-            </div>
-
-
-            <%#= form_tag scores_path(anchor: "search-id"), method: :get, remote: true do %>
-              <div class="form-group" id="search-id">
-                <%#= text_field_tag :query,
-                params[:query],
-                class: "searchbar",
-                placeholder: "Title, Composer ..."%>
-                <%#= submit_tag %>
-                <%# <button type="submit">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </button> %>
-              </div>
-            <%# end %>
+    <div class="headings d-flex flex-row pt-3 pb-5">
+      <h2 class="text-left py-3">
+      <%= link_to 'All Scores', scores_path %>
+      </h2>
+      <div class="d-flex ml-3 align-items-center">
+        <!-- Search Bar -->
+        <div class="searchContainer">
+        <%= simple_form_for :search, url: scores_path, method: :get, remote: true do |f| %>
+          <%= f.input :query, label: false, placeholder: "Composer, score, ...", input_html: {id:"search", class: "searchbar"} %>
+          <%= button_tag type: "submit", class: "button-postfix", id: "submit" do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        <% end %>
         </div>
       </div>
-        <!-- End Search Bar -->
+    </div>
+      <!-- End Search Bar -->
         <div class="grid-container" id="scores-list">
           <%= render "scores/scores_list", scores: @scores %>
         </div>
@@ -129,36 +102,20 @@
     </div>
     <div class="container mt-5">
       <div class="d-flex justify-content-center">
-        <a class="btn btn-dark">Load more</a>
+        <a class="btn btn-dark text-white">Load more</a>
       </div>
 
-   <div class="container mb-5">
-      <div class="headings d-flex flex-column pt-3 pb-5">
-        <h2 class="text-left py-3">Category</h2>
-        <p>CARD : Classic // Romantic etc ...</p>
-      </div>
-   </div>
+<!--      <div class="container mb-5">
+        <div class="headings d-flex flex-column pt-3 pb-5">
+          <h2 class="text-left py-3">Category</h2>
+          <p>CARD : Classic // Romantic etc ...</p>
+        </div>
+     </div> -->
 
-   <div class="container mb-5">
-      <div class="headings d-flex flex-column pt-3 pb-5">
-        <h2 class="text-left py-3">Composers</h2>
-        <p>AVATAR ROUNDED : Composer's pics </p>
-      </div>
-   </div>
-
+     <div class="container mb-5">
+        <div class="headings d-flex flex-column pt-3 pb-5">
+          <h2 class="text-left py-3">Composers</h2>
+          <p>AVATAR ROUNDED : Composer's pics </p>
+        </div>
+     </div>
     </div>
-    <!-- Swiper JS  -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-   <!-- Initialize Swiper -->
-    <script>
-      const swiper1 = new Swiper('.s1', {
-        slidesPerView: 3,
-        spaceBetween: 16,
-        mousewheel: true,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-    </script>

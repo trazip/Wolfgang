@@ -5,7 +5,19 @@ class CollectionPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    return true if user == current_user
+  end
+
   def create?
+    return true
+  end
+
+  def new?
+    return true
+  end
+
+  def show?
     return true
   end
 end

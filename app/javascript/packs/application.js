@@ -24,15 +24,18 @@ require("channels")
 // External imports
 import "bootstrap";
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDrawing } from '../plugins/init_drawing';
 import { initSearch } from '../plugins/init_search';
 
-document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  if (document.querySelector('#viewer')) initDrawing();
-  initSearch();
+  import { initSwiper} from '../plugins/init_swiper';
+
+  document.addEventListener('turbolinks:load', () => {
+    // Call your functions here, e.g:
+    initSwiper();
+    initDrawing();
+    initSearch();
   // initSelect2();
 });

@@ -1,1 +1,24 @@
-<h1> I'm the View ! </h1>
+<div class="container full-height d-flex align-items-center">
+   <div class="card card-score p-5 rounded">
+      <div class="card-head d-flex flex-direction-row mb-3">
+        <% if @score.composer.picture.attached? %>
+          <%= cl_image_tag @score.composer.picture.key, height: 140, width: 180, crop: :fill %>
+        <% else %>
+          <img src="https://miro.medium.com/max/1836/1*NzLGpAE4V7LJCfibfgIlHA@2x.png" height="140px" width="180px" alt="picture" />
+        <% end %>
+        <div class="p-3">
+          <h2><%= @score.title %></h2>
+          <h4><%= @score.composer.name %></h4>
+          <br>
+          <%= link_to "Open in the viewer", viewer_score_path(@score), class: "login-btn mt-5" %>
+        </div>
+      </div>
+     <div class="card-body border-top border-dark">
+      <h5>Biography</h5>
+      <p><%= @score.composer.bio %></p>
+        <div>
+        <%= link_to "Back to Scores", scores_path, class: "login-btn mt-5" %>
+      </div>
+     </div>
+  </div>
+</div>

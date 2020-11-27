@@ -1,11 +1,10 @@
 a {
   text-decoration: none !important;
   color: #212529 !important;
-  &:hover{
-      text-decoration: none !important;
-      color: #212529 !important;
-}
-
+    &:hover{
+        text-decoration: none !important;
+        color: #212529 !important;
+    }
 }
 .score-card {
   width: 140px;
@@ -34,6 +33,66 @@ a {
     }
   }
 }
+
+.card-score{
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: none;
+}
+
+.card-collection {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-collection img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-collection .card-collection-infos {
+  padding: 16px;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-img {
+  height: 160px;
+  margin: auto;
+  width: 160px;
+}
+
 
 
 
