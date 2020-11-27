@@ -3,7 +3,7 @@ import 'swiper/swiper-bundle.css';
 
 const initSwiper = () => {
   const swiper1 = new Swiper('.s1', {
-    slidesPerView: 3,
+    slidesPerView: 2,
     spaceBetween: 16,
     loop: true,
     mousewheel: true,
