@@ -77,7 +77,7 @@
         <!-- Search Bar -->
         <div class="searchContainer">
         <%= simple_form_for :search, url: scores_path, method: :get, remote: true do |f| %>
-          <%= f.input :query, label: false, placeholder: "Composer, score, ...", input_html: {id:"search", class: "searchbar"} %>
+          <%= f.input :query, label: false, placeholder: "Composer, score, ...", input_html: {id:"search", class: "searchbar outline", autocomplete: "off"} %>
           <%= button_tag type: "submit", class: "button-postfix", id: "submit" do %>
             <i class="fas fa-search"></i>
           <% end %>
@@ -101,7 +101,7 @@
           <h2 class="text-left py-3">Category</h2>
           <p>CARD : Classic // Romantic etc ...</p>
         </div>
-     </div> 
+     </div>
 
      <div class="container mb-5">
         <div class="headings d-flex flex-column pt-3 pb-5">
