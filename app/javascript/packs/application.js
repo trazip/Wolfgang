@@ -27,15 +27,19 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initDrawing } from '../plugins/init_drawing';
+import { initSwiper} from '../plugins/init_swiper';
+
+import Selectr from "mobius1-selectr";
+
 import { initSearch } from '../plugins/init_search';
 
   // Call your functions here, e.g:
-  import { initSwiper} from '../plugins/init_swiper';
-
   document.addEventListener('turbolinks:load', () => {
     // Call your functions here, e.g:
     initSwiper();
     initDrawing();
     initSearch();
+    new Selectr(document.getElementById("selectr"))
+
   // initSelect2();
 });
