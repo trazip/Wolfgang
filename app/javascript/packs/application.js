@@ -30,10 +30,14 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initDrawing } from '../plugins/init_drawing';
 import { initSwiper} from '../plugins/init_swiper';
+import Selectr from "mobius1-selectr"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSwiper();
   initDrawing();
+
+  new Selectr(document.getElementById("selectr"))
+
   // initSelect2();
 });
