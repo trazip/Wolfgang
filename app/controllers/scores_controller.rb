@@ -32,7 +32,6 @@ class ScoresController < ApplicationController
     @score.page_count = reader.page_count
 
     if @score.save
-      ImportScorePagesJob.perform_later(@score)
       redirect_to @score, notice: 'Your score was successfully uploaded.'
     else
       render :new
