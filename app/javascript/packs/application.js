@@ -28,10 +28,8 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initDrawing } from '../plugins/init_drawing';
 import { initSwiper} from '../plugins/init_swiper';
-
-import Selectr from "mobius1-selectr";
-
 import { initSearch } from '../plugins/init_search';
+import { initSelectr } from '../plugins/init_selectr';
 
   // Call your functions here, e.g:
   document.addEventListener('turbolinks:load', () => {
@@ -39,7 +37,6 @@ import { initSearch } from '../plugins/init_search';
     initSwiper();
     initDrawing();
     initSearch();
-    new Selectr(document.getElementById("selectr"))
-
+    initSelectr();
   // initSelect2();
 });
