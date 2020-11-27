@@ -1,8 +1,7 @@
-<div class="login-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 bg-dark login-box mt-n5">
-        <h1 class="mb-5">Log in your account</h1>
+<div class="container bg-dark full-height d-flex align-items-center">
+  <div class="container login-box">
+      
+        <h1>Get ready to play music!</h1>
 
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,7 +23,6 @@
 
 <%= render "devise/shared/links" %>
 
-      </div>
+      
     </div>
   </div>
-</div>
