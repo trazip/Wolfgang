@@ -1,0 +1,3 @@
+console.log(document.querySelector("#scores-list"));
+document.querySelector("#scores-list").innerHTML = "<%= j render 'scores/scores_list', scores: @scores %>";
+console.log("<%= j render 'scores/scores_list', scores: @scores %>");
