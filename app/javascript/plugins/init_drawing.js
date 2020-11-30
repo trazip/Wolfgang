@@ -1,8 +1,6 @@
 import Rails from '@rails/ujs';
 import {create} from 'simple-drawing-board';
 
-
-
 const initCanvas = (zone) => {
   const height = zone.offsetHeight;
   const width = zone.offsetWidth;
@@ -22,15 +20,17 @@ const submitData = (sdb, pageId) => {
 
 
 const initDrawing = () => {
+  const viewer = document.querySelector('#viewer');
+  const pdfPages = viewer.dataset.pdfPages;
+  const imgPages = viewer.dataset.imgPages;
   const zone = document.querySelector('#zone');
-  if (zone) {
+  if (zone && (pdfPages === imgPages)) {
     initCanvas(zone);
 
     const undo = document.querySelector('#undo');
     const clear = document.querySelector('#clear');
     const mode = document.querySelector('#mode');
     const canvas = document.querySelector('#canvas');
-    const viewer = document.querySelector('#viewer');
     const pageId = viewer.dataset.pageId;
     const annotation = viewer.dataset.annotation;
     const sdb = create(canvas);

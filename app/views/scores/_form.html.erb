@@ -1,8 +1,36 @@
-  <%= simple_form_for @score do |f| %>
+<%= simple_form_for @score do |f| %>
+  <%= f.input :file, as: :file %>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="upload-score">
+    Upload score
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title w-100" id="exampleModalLabel">🎈 Upload complete 🎈</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="progress" style="height: 25px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="myBar">25%
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col text-center">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <%= f.input :title, input_html: { autocomplete: "off" } %>
   <%= f.association :composer, input_html: { id: "selectr", class: "form-control" } %>
   <%= f.input :genre, as: :check_boxes, collection: Score::GENRES, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item form-check-inline' %>
   <%= f.association :collection, collection: current_user.collections,  selected: current_user.collections.first.id %>
-  <%= f.input :file, as: :file %>
-  <%= f.submit 'Upload score', class: "btn btn-warning" %>
+  <%= f.submit 'Save', class: "btn btn-warning" %>
 <% end %>
