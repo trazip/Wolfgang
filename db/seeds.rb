@@ -9,7 +9,7 @@ Page.destroy_all
 Collection.destroy_all
 
 puts "Creating Pierre 😎"
-pierre = User.new(email: "pierre@getwolfgang.com", password: "123456", username: "Pierre", first_name: "Pierre", last_name: "Penhard" )
+pierre = User.new(email: "pierre@getwolfgang.com", password: "123456", username: "Pierre", first_name: "Pierre", last_name: "Penhard", admin: true)
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/users/pierre_penhard.jpg")].first)
 pierre.picture.attach(io: file, filename: 'pierre_penhard.jpg', content_type: 'image/jpg')
 pierre.save!
@@ -38,10 +38,11 @@ mozart.picture.attach(io: file, filename: 'wolfgang_amadeus_mozart.jpg', content
 mozart.save!
 
 puts " 1 > Befraget mich ein zartes Kind 🎼"
-befraget_mich_ein_zartes_kind = Score.new(title: "Befraget mich ein zartes Kind", score_creation_date: "1768")
+befraget_mich_ein_zartes_kind = Score.new(title: "Befraget mich ein zartes Kind", score_creation_date: "1768", page_count: 2)
 befraget_mich_ein_zartes_kind.collection = pierre_first_collection
 befraget_mich_ein_zartes_kind.composer = mozart
-befraget_mich_ein_zartes_kind.collection = pierre_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Befraget_mich_ein_zartes_Kind_Mozart.pdf")].first)
+befraget_mich_ein_zartes_kind.file.attach(io: file, filename: 'befraget_mich_ein_zartes_kind.pdf', content_type: 'application/pdf')
 befraget_mich_ein_zartes_kind.save!
 
 puts "Birth of Giuseppe Verdi 👼 (1813 – 1901)"
@@ -51,9 +52,11 @@ verdi.picture.attach(io: file, filename: 'giuseppe_verdi.jpg', content_type: 'im
 verdi.save!
 
 puts "2 > Che non avrebbe il misero 🎼"
-che_non_avrebbe_il_misero = Score.new(title: "Che non avrebbe il misero", score_creation_date: "1845")
+che_non_avrebbe_il_misero = Score.new(title: "Che non avrebbe il misero", score_creation_date: "1845", page_count: 2)
 che_non_avrebbe_il_misero.composer = verdi
 che_non_avrebbe_il_misero.collection = pierre_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Che_non_avrebbe_il_misero_Verdi.pdf")].first)
+che_non_avrebbe_il_misero.file.attach(io: file, filename: 'Che_non_avrebbe_il_misero_Verdi.pdf', content_type: 'application/pdf')
 che_non_avrebbe_il_misero.save!
 
 puts "Birth of Justin Hurwitz 👼 (1985 - )"
@@ -66,6 +69,8 @@ puts "3 > Mia & Sebastian's Theme 🎼"
 mia_and_Sebastians_theme = Score.new(title: "Mia & Sebastian's Theme", score_creation_date: "2010")
 mia_and_Sebastians_theme.composer = hurwitz
 mia_and_Sebastians_theme.collection = pierre_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Mia_and_Sebastians_Theme_from_La_La_Land.pdf")].first)
+mia_and_Sebastians_theme.file.attach(io: file, filename: 'Mia_and_Sebastians_Theme_from_La_La_Land.pdf', content_type: 'application/pdf')
 mia_and_Sebastians_theme.save!
 
 puts "Birth of Ella Fitzgerald 👼 (1917 – 1996)"
@@ -77,6 +82,8 @@ fitzgerald.save!
 puts "4 > All Of Me - Ella Fitzgerald 🎼"
 all_of_me = Score.new(title: "All Of Me", score_creation_date: "1931")
 all_of_me.collection = pierre_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/All_Of_Me_Ella_Fitzgerald_Solo_Transcription.pdf")].first)
+all_of_me.file.attach(io: file, filename: 'All_Of_Me_Ella_Fitzgerald_Solo_Transcription.pdf', content_type: 'application/pdf')
 all_of_me.composer = fitzgerald
 all_of_me.save!
 
@@ -90,6 +97,8 @@ puts "5 > Arrival of the birds - the cinematic orchestra 🎼"
 arrival_of_the_birds = Score.new(title: "Arrival of the birds", score_creation_date: "2012")
 arrival_of_the_birds.composer = cinematic_orchestra
 arrival_of_the_birds.collection = pierre_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Arrival_of_the_birds_cinematic_orchestra.pdf")].first)
+arrival_of_the_birds.file.attach(io: file, filename: 'Arrival_of_the_birds_cinematic_orchestra.pdf', content_type: 'application/pdf')
 arrival_of_the_birds.save!
 
 puts "Birth of Erik Satie 👼 (1866 – 1925)"
@@ -102,6 +111,8 @@ puts "6 > Erik_Satie_-_Gymnopedie_No.1 🎼"
 gymnopedie_no_1 = Score.new(title: "Gymnopédie N°1", score_creation_date: "1897")
 gymnopedie_no_1.composer = satie
 gymnopedie_no_1.collection = nathalie_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Erik_Satie_Gymnopedie_No_1.pdf")].first)
+gymnopedie_no_1.file.attach(io: file, filename: 'Erik_Satie_Gymnopedie_No_1.pdf', content_type: 'application/pdf')
 gymnopedie_no_1.save!
 
 puts "Birth of Ennio Morricone 👼 (1928 – 2020)"
@@ -114,6 +125,8 @@ puts "7 > Gabriels_Oboe_-_Ennio_Morricone 🎼"
 gabriels_oboe = Score.new(title: "Gabriel's Oboe", score_creation_date: "1986")
 gabriels_oboe.composer = morricone
 gabriels_oboe.collection = nathalie_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Gabriels_Oboe_Ennio_Morricone.pdf")].first)
+gabriels_oboe.file.attach(io: file, filename: 'Gabriels_Oboe_Ennio_Morricone.pdf', content_type: 'application/pdf')
 gabriels_oboe.save!
 
 puts "Birth of James Brown 👼 (1933 – 2006)"
@@ -126,6 +139,8 @@ puts "8 > I_FEEL_GOOD_de_James_Brown 🎼"
 i_feel_good = Score.new(title: "I feel good", score_creation_date: "1964")
 i_feel_good.composer = brown
 i_feel_good.collection = nathalie_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/I_FEEL_GOOD_de_James_Brown.pdf")].first)
+i_feel_good.file.attach(io: file, filename: 'I_FEEL_GOOD_de_James_Brown.pdf', content_type: 'application/pdf')
 i_feel_good.save!
 
 puts "Birth of Franz Schubert 👼 (1797 – 1828)"
@@ -138,6 +153,8 @@ puts "9  > Franz Schubert - Standchen from Schwanengesang Serenade for Piano �
 standchen_from_Schwanengesang_Serenade_for_Piano = Score.new(title: "Standchen from Schwanengesang Serenade for Piano", score_creation_date: "1828")
 standchen_from_Schwanengesang_Serenade_for_Piano.composer = schubert
 standchen_from_Schwanengesang_Serenade_for_Piano.collection = nathalie_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf")].first)
+standchen_from_Schwanengesang_Serenade_for_Piano.file.attach(io: file, filename: 'Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf', content_type: 'application/pdf')
 standchen_from_Schwanengesang_Serenade_for_Piano.save!
 
 puts "Birth of Hans Zimmer 👼 (1957 - )"
@@ -150,4 +167,6 @@ puts "10  > Time Inception - Hans Zimmer 🎼"
 time = Score.new(title: "Time", score_creation_date: "2010")
 time.collection = nathalie_first_collection
 time.composer = zimmer
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Time_Inception_Hans_Zimmer.pdf")].first)
+time.file.attach(io: file, filename: 'Time_Inception_Hans_Zimmer.pdf', content_type: 'application/pdf')
 time.save!

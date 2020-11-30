@@ -28,7 +28,20 @@ input.searchbar {
   background-color: #fff;
 
   &:focus {
-    outline: none;
+    outline: none !important;
+  }
+}
+
+#search {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.outline {
+  outline: none !important;
+  &:focus {
+    outline: none !important;
   }
 }
 
