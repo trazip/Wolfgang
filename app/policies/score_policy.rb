@@ -20,4 +20,14 @@ class ScorePolicy < ApplicationPolicy
    def show?
     return true
   end
+
+  def destroy?
+    is_user_score?
+  end
+
+  private
+
+  def is_user_score?
+    user == record.user
+  end
 end
