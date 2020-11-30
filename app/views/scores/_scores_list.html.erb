@@ -1,6 +1,6 @@
 
 <% scores.each do |score| %>
-  <%= link_to score_path(score) do %>
+  <%= link_to viewer_score_path(score) do %>
     <div class="score-card d-flex flex-column align-items-start">
       <% if score.file.attached? %>
         <img src="<%= cl_image_path score.file.key, :format => :jpg, :page=>1, height: 180, width: 140, crop: :fill %>">
