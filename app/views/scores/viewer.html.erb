@@ -18,18 +18,38 @@
 
     <% if @score.user == current_user %>
       <div id="share-btn">
-        <div class="collaborations">
-          <%= simple_form_for Collaboration.new do |f| %>
-            <%= f.association :user, collection: User.all.map { |user| [user.username, user.id]} %>
-            <%= f.input :score_id, input_html: { value: @page.score.id, class: 'd-none' }, label: false %>
-            <%= f.submit %>
-          <% end %>
-        </div>
-        <button id="share">
+        
+        <button id="share" data-toggle="modal" data-target="#shareModal">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
         </button>
       </div>
     <% end %>
+
+    <!-- Modal Bootstrap Share -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shareModalLabel">Share with :</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="collaborations">
+          <%= simple_form_for Collaboration.new do |f| %>
+            <%= f.association :user, collection: User.all.map { |user| [user.username, user.id]} %>
+            <%= f.input :score_id, input_html: { value: @page.score.id, class: 'd-none' }, label: false %>
+            <div class="modal-footer"> <%= f.submit class: "login-btn" %>
+            </div>           
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Bootstrap Info -->
 
     <div id="info-btn">
       <button id="info" data-toggle="modal" data-target="#infoModal">
@@ -37,7 +57,6 @@
       </button>
     </div>
 
-<!-- Modal Bootstrap Info -->
     <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -69,17 +88,21 @@
     </div>
 <!-- Fin de Modal Info -->
 
+<!-- Dropdown Setting -->
+
 <!--     <div id="setting-btn" data-toggle="modal" data-target="#settingModal">
       <button id="setting">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
       </button>
     </div> -->
-
+     
+    <% if @score.user == current_user %>
     <div class="dropdown show">
       <div class="dropdown-toggle setting-btn" href="#" role="button" id="dropdownMenuLinkSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <button id="setting">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
         </button>
+    <% end %>
       </div>
 
       <div class="dropdown-menu"  id="dropdown-settings" aria-labelledby="dropdownMenuLinkSettings">
@@ -91,6 +114,8 @@
         <% end %>
       </div>
     </div>
+  
+  <!-- Fin Dropdown Setting -->
 
 <!-- Modal Bootstrap Setting -->
     <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
