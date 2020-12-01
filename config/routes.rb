@@ -19,8 +19,9 @@ Rails.application.routes.draw do
 
   resources :pages, only: [] do
     resources :annotations, only: :create
-
   end
+
+  resources :collaborations, only: :create
 
   resources :users, only: [:show]
 end
