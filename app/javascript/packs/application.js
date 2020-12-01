@@ -30,6 +30,7 @@ import { initDrawing } from '../plugins/init_drawing';
 import { initSwiper} from '../plugins/init_swiper';
 import { initSearch } from '../plugins/init_search';
 import { initSelectr } from '../plugins/init_selectr';
+import { initNewCollectionBtn } from '../plugins/close_btn';
 import { move } from '../plugins/loading_bar';
 
   // Call your functions here, e.g:
@@ -39,6 +40,7 @@ import { move } from '../plugins/loading_bar';
     initDrawing();
     initSearch();
     initSelectr();
+    initNewCollectionBtn();
   // initSelect2();
-    move();
+    // move();
 });
