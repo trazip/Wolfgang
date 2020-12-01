@@ -7,6 +7,7 @@ a {
     }
 }
 .score-card {
+  position: relative;
   text-align: center;
   width: 140px;
   height: 260px;
@@ -14,7 +15,7 @@ a {
   margin: auto;
   overflow: hidden;
   color: #212529 !important;
-  img {
+  .cover {
     background-position: center;
     background-size: cover;
     width: 140px;
@@ -92,6 +93,12 @@ a {
   height: 160px;
   margin: auto;
   width: 160px;
+}
+
+.collab_thumbnail {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 

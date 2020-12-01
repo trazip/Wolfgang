@@ -103,9 +103,9 @@
                         <img src="https://cdn.glitch.com/96d14086-88aa-4431-9b90-c5a325656bc3%2Fwolfgang-cover.png?v=1606244253539">
                       <% end %>
                       <div class="score-details">
+                        <%= cl_image_tag score.collaborators.picture.key, class: "avatar" %>
                         <span><%= score.composer.name %></span>
                         <h4><%= score.title %></h4>
-                        <%#= cl_image_tag score.collaborators.picture.key, class: "avatar" %>
                       </div>
                     </div>
                   <% end %>
