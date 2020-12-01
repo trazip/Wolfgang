@@ -49,6 +49,25 @@ class ScoresController < ApplicationController
     skip_authorization
   end
 
+  def edit
+    @score = Score.find(params[:id])
+    authorize @score
+  end
+
+  def update
+    @score = Score.find(params[:id])
+    authorize @score
+    @score.update(score_params)
+    redirect_to viewer_score_path(@score)
+  end
+
+  def destroy
+    @score = Score.find(params[:id])
+    authorize @score
+    @score.destroy
+    redirect_to root_path, notice: 'Your score was successfully destroyed.'
+  end
+
   private
 
   def score_params

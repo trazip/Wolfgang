@@ -13,6 +13,7 @@
     <% unless @page.is_last? %>
       <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.next.id }), id: "next"  %>
     <% end %>
+                  
     <%= render 'tools' %>
 
     <% if @score.user == current_user %>
@@ -29,5 +30,67 @@
         </button>
       </div>
     <% end %>
+
+    <div id="info-btn">
+      <button id="info" data-toggle="modal" data-target="#infoModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+      </button>
+    </div>
+
+<!-- Modal Bootstrap Info -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="infoModalLabel"> <%= @score.title %> </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Fin de Modal Info -->
+
+    <div id="setting-btn" data-toggle="modal" data-target="#settingModal">
+      <button id="setting">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+      </button>
+    </div>
+
+<!-- Modal Bootstrap Setting -->
+    <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="settingModalLabel"> <%= @score.title %> </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <% if policy(@score).edit? %>
+              <p> <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Edit </a> </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  <%= simple_form_for @score do |f| %>
+                  <%= f.input :title, input_html: { autocomplete: "off" } %>
+                  <%= f.submit 'Save new title', class: "login-btn mt-5" %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+            <% if policy(@score).destroy? %>
+              <p> <%= link_to 'Delete', @score, method: :delete, data: {confirm: "Do you realy want to DELETE this score?"}, class: 'delete-btn'%> </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Fin de Modal Setting -->
+
   </div>
 </div>
