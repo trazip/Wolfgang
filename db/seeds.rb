@@ -207,3 +207,31 @@ cover = File.open(File.join(Rails.root,'app/assets/images/covers/10.png'))
 time.cover.attach(io: cover, filename: 'cover_10', content_type: 'image/png')
 time.save!
 push_pages_to_cloudinary(file, time)
+
+puts "Birth of Jacques Offenbach 👼 (1819 - 1880)"
+offenbach = Composer.new(name: "J. Offenbach")
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/jacques_offenbach.jpg")].first)
+offenbach.picture.attach(io: file, filename: 'jacques_offenbach.jpg.jpg', content_type: 'image/jpg')
+offenbach.save!
+
+puts "11  > Bolero de Charles Martel - Hans Zimmer 🎼"
+bolero = Score.new(title: "Boléro de C. Martel", score_creation_date: "1859")
+bolero.collection = nathalie_first_collection
+bolero.composer = offenbach
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/bolero_de_charles_martel.pdf")].first)
+bolero.file.attach(io: file, filename: 'bolero.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/11.png'))
+bolero.cover.attach(io: cover, filename: 'cover_11', content_type: 'image/png')
+bolero.save!
+push_pages_to_cloudinary(file, bolero)
+
+puts "12  > Se vuol Ballare - W.A. Mozart 🎼"
+se = Score.new(title: "Se vuol ballare", score_creation_date: "2010")
+se.collection = nathalie_first_collection
+se.composer = mozart
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/se_vuol_ballare.pdf")].first)
+se.file.attach(io: file, filename: 'se_Inception_Hans_Zimmer.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/12.png'))
+se.cover.attach(io: cover, filename: 'cover_12', content_type: 'image/png')
+se.save!
+push_pages_to_cloudinary(file, se)
