@@ -24,6 +24,7 @@ const submitData = (sdb, pageId) => {
 }
 
 
+
 const initDrawing = async () => {
   const zone = document.querySelector('#zone');
   console.log('init drawing')
@@ -36,7 +37,6 @@ const initDrawing = async () => {
     const pen = document.querySelector('#pen');
     const eraser = document.querySelector('#eraser');
     const canvas = document.querySelector('#canvas');
-    const viewer = document.querySelector('#viewer');
     const pageId = viewer.dataset.pageId;
     const annotation = viewer.dataset.annotation;
     const ownerId = viewer.dataset.ownerId;

@@ -30,6 +30,7 @@ import { initDrawing } from '../plugins/init_drawing';
 import { initSwiper} from '../plugins/init_swiper';
 import { initSearch } from '../plugins/init_search';
 import { initSelectr } from '../plugins/init_selectr';
+import { move } from '../plugins/loading_bar';
 
   // Call your functions here, e.g:
   document.addEventListener('turbolinks:load', () => {
@@ -39,4 +40,5 @@ import { initSelectr } from '../plugins/init_selectr';
     initSearch();
     initSelectr();
   // initSelect2();
+    move();
 });
