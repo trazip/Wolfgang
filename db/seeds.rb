@@ -43,6 +43,8 @@ befraget_mich_ein_zartes_kind.collection = pierre_first_collection
 befraget_mich_ein_zartes_kind.composer = mozart
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Befraget_mich_ein_zartes_Kind_Mozart.pdf")].first)
 befraget_mich_ein_zartes_kind.file.attach(io: file, filename: 'befraget_mich_ein_zartes_kind.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/1.png'))
+befraget_mich_ein_zartes_kind.cover.attach(io: cover, filename: 'cover_1', content_type: 'image/png')
 befraget_mich_ein_zartes_kind.save!
 
 puts "Birth of Giuseppe Verdi 👼 (1813 – 1901)"
@@ -57,6 +59,8 @@ che_non_avrebbe_il_misero.composer = verdi
 che_non_avrebbe_il_misero.collection = pierre_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Che_non_avrebbe_il_misero_Verdi.pdf")].first)
 che_non_avrebbe_il_misero.file.attach(io: file, filename: 'Che_non_avrebbe_il_misero_Verdi.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/2.png'))
+che_non_avrebbe_il_misero.cover.attach(io: cover, filename: 'cover_2', content_type: 'image/png')
 che_non_avrebbe_il_misero.save!
 
 puts "Birth of Justin Hurwitz 👼 (1985 - )"
@@ -71,6 +75,8 @@ mia_and_Sebastians_theme.composer = hurwitz
 mia_and_Sebastians_theme.collection = pierre_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Mia_and_Sebastians_Theme_from_La_La_Land.pdf")].first)
 mia_and_Sebastians_theme.file.attach(io: file, filename: 'Mia_and_Sebastians_Theme_from_La_La_Land.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/3.png'))
+mia_and_Sebastians_theme.cover.attach(io: cover, filename: 'cover_3', content_type: 'image/png')
 mia_and_Sebastians_theme.save!
 
 puts "Birth of Ella Fitzgerald 👼 (1917 – 1996)"
@@ -85,6 +91,8 @@ all_of_me.collection = pierre_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/All_Of_Me_Ella_Fitzgerald_Solo_Transcription.pdf")].first)
 all_of_me.file.attach(io: file, filename: 'All_Of_Me_Ella_Fitzgerald_Solo_Transcription.pdf', content_type: 'application/pdf')
 all_of_me.composer = fitzgerald
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/4.png'))
+all_of_me.cover.attach(io: cover, filename: 'cover_4', content_type: 'image/png')
 all_of_me.save!
 
 puts "Creation of The Cinematic Orchestra 🎉 (1999 - )"
@@ -99,6 +107,8 @@ arrival_of_the_birds.composer = cinematic_orchestra
 arrival_of_the_birds.collection = pierre_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Arrival_of_the_birds_cinematic_orchestra.pdf")].first)
 arrival_of_the_birds.file.attach(io: file, filename: 'Arrival_of_the_birds_cinematic_orchestra.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/5.png'))
+arrival_of_the_birds.cover.attach(io: cover, filename: 'cover_5', content_type: 'image/png')
 arrival_of_the_birds.save!
 
 puts "Birth of Erik Satie 👼 (1866 – 1925)"
@@ -113,6 +123,8 @@ gymnopedie_no_1.composer = satie
 gymnopedie_no_1.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Erik_Satie_Gymnopedie_No_1.pdf")].first)
 gymnopedie_no_1.file.attach(io: file, filename: 'Erik_Satie_Gymnopedie_No_1.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/6.png'))
+gymnopedie_no_1.cover.attach(io: cover, filename: 'cover_6', content_type: 'image/png')
 gymnopedie_no_1.save!
 
 puts "Birth of Ennio Morricone 👼 (1928 – 2020)"
@@ -127,6 +139,8 @@ gabriels_oboe.composer = morricone
 gabriels_oboe.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Gabriels_Oboe_Ennio_Morricone.pdf")].first)
 gabriels_oboe.file.attach(io: file, filename: 'Gabriels_Oboe_Ennio_Morricone.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/7.png'))
+gabriels_oboe.cover.attach(io: cover, filename: 'cover_7', content_type: 'image/png')
 gabriels_oboe.save!
 
 puts "Birth of James Brown 👼 (1933 – 2006)"
@@ -141,6 +155,8 @@ i_feel_good.composer = brown
 i_feel_good.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/I_FEEL_GOOD_de_James_Brown.pdf")].first)
 i_feel_good.file.attach(io: file, filename: 'I_FEEL_GOOD_de_James_Brown.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/8.png'))
+i_feel_good.cover.attach(io: cover, filename: 'cover_8', content_type: 'image/png')
 i_feel_good.save!
 
 puts "Birth of Franz Schubert 👼 (1797 – 1828)"
@@ -150,11 +166,13 @@ schubert.picture.attach(io: file, filename: 'franz_schubert.jpg', content_type: 
 schubert.save!
 
 puts "9  > Franz Schubert - Standchen from Schwanengesang Serenade for Piano 🎼"
-standchen_from_Schwanengesang_Serenade_for_Piano = Score.new(title: "Standchen from Schwanengesang Serenade for Piano", score_creation_date: "1828")
+standchen_from_Schwanengesang_Serenade_for_Piano = Score.new(title: "Ständchen (for piano)", score_creation_date: "1828")
 standchen_from_Schwanengesang_Serenade_for_Piano.composer = schubert
 standchen_from_Schwanengesang_Serenade_for_Piano.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf")].first)
 standchen_from_Schwanengesang_Serenade_for_Piano.file.attach(io: file, filename: 'Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/9.png'))
+standchen_from_Schwanengesang_Serenade_for_Piano.cover.attach(io: cover, filename: 'cover_9', content_type: 'image/png')
 standchen_from_Schwanengesang_Serenade_for_Piano.save!
 
 puts "Birth of Hans Zimmer 👼 (1957 - )"
@@ -169,4 +187,6 @@ time.collection = nathalie_first_collection
 time.composer = zimmer
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Time_Inception_Hans_Zimmer.pdf")].first)
 time.file.attach(io: file, filename: 'Time_Inception_Hans_Zimmer.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/10.png'))
+time.cover.attach(io: cover, filename: 'cover_10', content_type: 'image/png')
 time.save!
