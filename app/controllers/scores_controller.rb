@@ -12,8 +12,8 @@ class ScoresController < ApplicationController
     else
       @scores = policy_scope(Score)
     end
-
     @composers = Composer.all
+    @collab_scores = current_user.collab_scores
   end
 
   def new

@@ -1,4 +1,3 @@
-
 <% scores.each do |score| %>
   <%= link_to viewer_score_path(score) do %>
     <div class="score-card d-flex flex-column align-items-start">
@@ -12,5 +11,12 @@
         <h4><%= score.title %></h4>
       </div>
     </div>
+    <% if score.shared? %>
+        <span>
+          <% score.collaborators.each do |collaborator| %>
+            <%= cl_image_tag collaborator.picture.key, class: "avatar-sm" %>
+          <% end %>
+        </span>
+      <% end %>
   <% end %>
 <% end %>

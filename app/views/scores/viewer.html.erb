@@ -38,7 +38,7 @@
       <div class="modal-body">
         <div class="collaborations">
           <%= simple_form_for Collaboration.new do |f| %>
-            <%= f.association :user, collection: User.all.map { |user| [user.username, user.id]} %>
+            <%= f.association :user, collection: User.all.reject { |user| user == current_user }.map { |user| [user.username, user.id]} %>
             <%= f.input :score_id, input_html: { value: @page.score.id, class: 'd-none' }, label: false %>
             <div class="modal-footer"> <%= f.submit class: "login-btn" %>
             </div>

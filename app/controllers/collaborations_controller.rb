@@ -2,6 +2,7 @@ class CollaborationsController < ApplicationController
   def create
     @collaboration = Collaboration.new(collaboration_params)
     authorize @collaboration
+    @collaboration.save
   end
 
   private
