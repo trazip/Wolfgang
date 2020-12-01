@@ -13,7 +13,7 @@
     <% unless @page.is_last? %>
       <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.next.id }), id: "next"  %>
     <% end %>
-                  
+
     <%= render 'tools' %>
 
     <% if @score.user == current_user %>
@@ -55,15 +55,32 @@
     </div>
 <!-- Fin de Modal Info -->
 
-    <div id="setting-btn" data-toggle="modal" data-target="#settingModal">
+<!--     <div id="setting-btn" data-toggle="modal" data-target="#settingModal">
       <button id="setting">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
       </button>
+    </div> -->
+
+    <div class="dropdown show">
+      <div class="dropdown-toggle setting-btn" href="#" role="button" id="dropdownMenuLinkSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="setting">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+        </button>
+      </div>
+
+      <div class="dropdown-menu"  id="dropdown-settings" aria-labelledby="dropdownMenuLinkSettings">
+        <% if policy(@score).edit? %>
+          <a class="dropdown-item" data-toggle="modal" data-target="#settingModal" href="#">Edit the title</a>
+        <% end %>
+        <% if policy(@score).destroy? %>
+        <%= link_to 'Delete the score', @score, method: :delete, data: {confirm: "Do you realy want to DELETE this score?"}, class: 'delete-btn dropdown-item'%>
+        <% end %>
+      </div>
     </div>
 
 <!-- Modal Bootstrap Setting -->
     <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="settingModalLabel"> <%= @score.title %> </h5>
@@ -72,20 +89,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <% if policy(@score).edit? %>
-              <p> <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Edit </a> </p>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <%= simple_form_for @score do |f| %>
-                  <%= f.input :title, input_html: { autocomplete: "off" } %>
-                  <%= f.submit 'Save new title', class: "login-btn mt-5" %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-            <% if policy(@score).destroy? %>
-              <p> <%= link_to 'Delete', @score, method: :delete, data: {confirm: "Do you realy want to DELETE this score?"}, class: 'delete-btn'%> </p>
-            <% end %>
+            <div class="card card-body">
+              <%= simple_form_for @score do |f| %>
+              <%= f.input :title, input_html: { autocomplete: "off" } %>
+              <%= f.submit 'Save new title', class: "login-btn mt-5" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

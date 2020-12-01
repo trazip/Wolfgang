@@ -98,7 +98,7 @@
     }
   }
 
-  #setting-btn {
+  .setting-btn {
     position: absolute;
     bottom: 10px;
     right: 70%;
@@ -114,6 +114,22 @@
     #setting:focus{
       outline:0;
     }
+  }
+
+  #dropdown-settings {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    transform: none !important;
+    left: 1% !important;
+    bottom: 0 !important;
+    top: auto !important;
+    a {
+          color: white !important;
+    }
+  }
+
+  .dropdown-toggle::after {
+    display: none;
   }
 
 }
