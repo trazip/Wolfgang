@@ -1,5 +1,5 @@
-  <%= simple_form_for @score do |f| %>
-  <%= f.input :title, input_html: { autocomplete: "off" } %>
+<%= simple_form_for @score do |f| %>
+  <%= f.input :title, input_html: { autocomplete: "off"} %>
   <%= f.association :composer, input_html: { id: "selectr", class: "form-control" } %>
   <%= f.input :genre, as: :check_boxes, collection: Score::GENRES, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item form-check-inline' %>
   <%= f.association :collection, collection: current_user.collections,  selected: current_user.collections.first.id %>
@@ -7,3 +7,77 @@
   <%= f.input :cover, as: :file %>
   <%= f.submit 'Upload score', class: "login-btn mt-5" %>
 <% end %>
+
+<!-- <form class="simple_form new_score" id="new_score" novalidate="novalidate" enctype="multipart/form-data" action="/scores" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" value="YUv3s65sFDzzQuHTYhPM6dX2FizaKuYFUalakUcvbsTTY+zSV3QAn/LR668cs16rKdB4EvIm+1KXJ/5z3LKeiw==" />
+    <div class="form-group string optional score_title"><label class="string optional" for="score_title">Title</label><input class="form-control string optional" autocomplete="off" type="text" name="score[title]" id="score_title" /></div>
+    <div class="form-group select required score_composer">
+        <label class="select required" for="selectr">Composer <abbr title="required">*</abbr></label>
+        <div class="selectr-container selectr-mobile has-selected" style="width: 100%;">
+            <div class="selectr-selected" disabled="undefined" tabindex="0" aria-expanded="false">
+                <span class="selectr-label"></span>
+                <div class="selectr-placeholder">Select an option...</div>
+            </div>
+            <div class="selectr-options-container">
+                <div class="selectr-input-container">
+                    <input class="selectr-input" tagindex="-1" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="true" role="textbox" type="search" /><button class="selectr-input-clear" type="button"></button>
+                </div>
+                <div class="selectr-notice"></div>
+                <ul class="selectr-options" role="tree" aria-hidden="true" aria-expanded="false"></ul>
+            </div>
+            <select class="form-control select required selectr-visible" id="selectr" name="score[composer_id]" tabindex="-1" aria-hidden="true">
+                <option value="" selected=""></option>
+                <option value="11">W.A. Mozart</option>
+                <option value="12">G. Verdi</option>
+                <option value="13">J. Hurwitz</option>
+                <option value="14">E. Fitzgerald</option>
+                <option value="15">The Cinematic Orchestra</option>
+                <option value="16">E. Satie</option>
+                <option value="17">E. Morricone</option>
+                <option value="18">J. Brown</option>
+                <option value="19">F. Schubert</option>
+                <option value="20">H. Zimmer</option>
+            </select>
+        </div>
+    </div>
+    <fieldset class="form-group check_boxes optional score_genre">
+        <legend class="col-form-label pt-0">Genre</legend>
+        <input type="hidden" name="score[genre][]" value="" />
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="Rock" name="score[genre][]" id="score_genre_rock" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_rock">Rock</label>
+        </div>
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="Classique" name="score[genre][]" id="score_genre_classique" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_classique">Classique</label>
+        </div>
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="R&amp;B" name="score[genre][]" id="score_genre_rb" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_rb">R&amp;B</label>
+        </div>
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="Pirate Metal" name="score[genre][]" id="score_genre_pirate_metal" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_pirate_metal">Pirate Metal</label>
+        </div>
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="Reggae" name="score[genre][]" id="score_genre_reggae" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_reggae">Reggae</label>
+        </div>
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="Opera" name="score[genre][]" id="score_genre_opera" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_opera">Opera</label>
+        </div>
+        <div class="tag-item form-check-inline">
+            <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="k-pop" name="score[genre][]" id="score_genre_k-pop" />
+            <label class="form-check-label collection_check_boxes" for="score_genre_k-pop">k-pop</label>
+        </div>
+    </fieldset>
+    <div class="form-group select required score_collection">
+        <label class="select required" for="score_collection_id">Collection <abbr title="required">*</abbr></label>
+        <select class="form-control select required" name="score[collection_id]" id="score_collection_id">
+            <option selected="selected" value="3">My collection</option>
+        </select>
+    </div>
+    <div class="form-group file optional score_file"><label class="file optional" for="score_file">File</label><input class="form-control-file file optional" type="file" name="score[file]" id="score_file" /></div>
+    <input type="submit" name="commit" value="Upload score" class="btn btn-warning" data-disable-with="Upload score" />
+</form> -->
