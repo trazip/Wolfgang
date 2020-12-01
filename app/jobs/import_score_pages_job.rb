@@ -4,6 +4,7 @@ class ImportScorePagesJob < ApplicationJob
   queue_as :default
 
   def perform(score)
+    sleep(2)
     score.page_count.times do |i|
       url = Cloudinary::Utils.cloudinary_url(score.file.key, page: i + 1)
       page = Page.new(score: score)

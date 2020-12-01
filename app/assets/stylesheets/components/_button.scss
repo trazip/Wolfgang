@@ -26,17 +26,36 @@
 }
 
 input[type=file]::-webkit-file-upload-button {
-  border: 1px solid #ffb700;
-  background: #ffb700;
-  color: rgba(0, 0, 0, 0.9);
-  border-radius: 2%;
-  padding: 6px 6px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  // border: 1px solid #ffb700;
+  // background: #ffb700;
+  // color: rgba(0, 0, 0, 0.9);
+  // border-radius: 2%;
+  // padding: 6px 6px;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #dee2e6;
+  border-radius: .375rem;
+  box-shadow: rgba(0,0,0,.075) 0 .125rem .25rem;
+  box-sizing: border-box;
+  color: #374151;
+  cursor: pointer;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1rem;
+  margin: 0;
+  overflow: visible;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-transform: none;
+  margin-right: 20px;
 }
 
 input[type=file]::-webkit-file-upload-button:hover {
   background-color: #ffb700c9;
-  transition: background-color .4s
+  transition: background-color .4s;
+  color: white;
 }
 
 .form-control-file, .form-control-range {

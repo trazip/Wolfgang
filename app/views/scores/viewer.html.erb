@@ -1,26 +1,144 @@
-<div class="full-height">
-  <div
-    id="viewer"
-    data-pdf-pages="<%= @score.page_count %>"
-    data-img-pages="<%= @score.pages.count %>"
-    data-page-id="<%= @page.id %>"
-    data-annotation="<%= @page.annotation.data if @page.annotation %>"
-  >
-    <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.id - 1}), id: "previous"  %>
+<!-- <div class="full-height"> -->
+  <div id="viewer" data-page-id="<%= @page.id %>"
+                   data-annotation="<%= @page.annotation.data if @page.annotation %>"
+                   data-owner-id="<%= @page.score.user.id %>"
+                   data-user-id="<%= current_user.id %>">
+
+    <% unless @page.is_first? %>
+      <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.previous.id}), id: "previous"  %>
+    <% end %>
     <div id="zone">
       <%= cl_image_tag @page.file.key, class: 'score-page' %>
     </div>
-    <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.id + 1}), id: "next"  %>
-     <div id="tools">
-      <button id="mode">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-      </button>
-      <button id="clear">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-      </button>
-      <button id="undo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-up-left"><polyline points="9 14 4 9 9 4"></polyline><path d="M20 20v-7a4 4 0 0 0-4-4H4"></path></svg>
-      </button>
+    <% unless @page.is_last? %>
+      <%= link_to ' ', viewer_score_path(@score, params: {page_id: @page.next.id }), id: "next"  %>
+    <% end %>
+
+    <%= render 'tools' %>
+
+    <% if @score.user == current_user %>
+      <div id="share-btn">
+
+        <button id="share" data-toggle="modal" data-target="#shareModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+        </button>
+      </div>
+    <% end %>
+
+    <!-- Modal Bootstrap Share -->
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shareModalLabel">Share with :</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="collaborations">
+          <%= simple_form_for Collaboration.new do |f| %>
+            <%= f.association :user, collection: User.all.map { |user| [user.username, user.id]} %>
+            <%= f.input :score_id, input_html: { value: @page.score.id, class: 'd-none' }, label: false %>
+            <div class="modal-footer"> <%= f.submit class: "login-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Modal Bootstrap Info -->
+
+    <div id="info-btn">
+      <button id="info" data-toggle="modal" data-target="#infoModal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+      </button>
+    </div>
+
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="infoModalLabel"> <%= @score.title %> - <%= @score.composer.name %> </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container d-flex align-items-center">
+              <div class="card card-score p-5 rounded">
+                  <div class="card-head d-flex flex-direction-row mb-3">
+                    <% if @score.composer.picture.attached? %>
+                      <%= cl_image_tag @score.composer.picture.key, height: 140, width: 180, crop: :fill %>
+                    <% else %>
+                      <img src="https://miro.medium.com/max/1836/1*NzLGpAE4V7LJCfibfgIlHA@2x.png" height="140px" width="180px" alt="picture" />
+                    <% end %>
+                  </div>
+                <div class="card-body border-top border-dark">
+                  <h5>Biography</h5>
+                  <p><%= @score.composer.bio %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Fin de Modal Info -->
+
+<!-- Dropdown Setting -->
+
+<!--     <div id="setting-btn" data-toggle="modal" data-target="#settingModal">
+      <button id="setting">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+      </button>
+    </div> -->
+
+    <% if @score.user == current_user %>
+    <div class="dropdown show">
+      <div class="dropdown-toggle setting-btn" href="#" role="button" id="dropdownMenuLinkSettings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="setting">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+        </button>
+    <% end %>
+      </div>
+
+      <div class="dropdown-menu"  id="dropdown-settings" aria-labelledby="dropdownMenuLinkSettings">
+        <% if policy(@score).edit? %>
+          <a class="dropdown-item" data-toggle="modal" data-target="#settingModal" href="#">Edit the title</a>
+        <% end %>
+        <% if policy(@score).destroy? %>
+        <%= link_to 'Delete the score', @score, method: :delete, data: {confirm: "Do you realy want to DELETE this score?"}, class: 'delete-btn dropdown-item'%>
+        <% end %>
+      </div>
+    </div>
+
+  <!-- Fin Dropdown Setting -->
+
+<!-- Modal Bootstrap Setting -->
+    <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="settingModalLabel"> <%= @score.title %> </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card card-body">
+              <%= simple_form_for @score do |f| %>
+              <%= f.input :title, input_html: { autocomplete: "off" } %>
+              <%= f.submit 'Save new title', class: "login-btn mt-5" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Fin de Modal Setting -->
+
+  </div>
+<!-- </div> -->

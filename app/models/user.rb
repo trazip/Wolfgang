@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   has_many :collections, dependent: :destroy
   has_many :scores, through: :collections
+  has_many :collaborations
+  has_many :collab_scores, through: :collaborations, source: :score
+
   has_one_attached :picture
 end
