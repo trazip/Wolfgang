@@ -16,4 +16,8 @@ class Score < ApplicationRecord
   def push_pages_to_cloudinary
     ImportScorePagesJob.perform_later(self)
   end
+
+  def shared?
+    collaborations.any?
+  end
 end

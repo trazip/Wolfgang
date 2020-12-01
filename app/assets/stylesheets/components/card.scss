@@ -7,6 +7,7 @@ a {
     }
 }
 .score-card {
+  text-align: center;
   width: 140px;
   height: 260px;
   font-family: system-ui;
@@ -26,9 +27,9 @@ a {
   }
 
   .score-details {
+    margin: 0 auto;
     h4 {
       margin: 0px;
-      padding: 0 5px;
       font-size: 14px !important;
     }
   }
