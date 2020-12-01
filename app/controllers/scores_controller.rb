@@ -4,17 +4,15 @@ class ScoresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    puts "KON PEU PAS LOUPER 🎢🎢🎢🎢🎢🎢"
-    p params
-    puts "kon peut VRAIMENT pas louper 🎀🎀🎀🎀🎀🎀"
     if params[:search].present?
       sql_query = " \
       scores.title ILIKE :query \
       OR composers.name ILIKE :query \ "
-    @scores = policy_scope(Score.joins(:composer).where(sql_query, query: "%#{params[:search][:query]}%"))
+      @scores = policy_scope(Score.joins(:composer).where(sql_query, query: "%#{params[:search][:query]}%"))
     else
-    @scores = policy_scope(Score)
+      @scores = policy_scope(Score)
     end
+
     @composers = Composer.all
   end
 
@@ -27,13 +25,13 @@ class ScoresController < ApplicationController
   def create
     @score = Score.new(score_params)
     authorize @score
-    #ouvrir le fichier, compter le nb de page depuis le parametre file
+    # #ouvrir le fichier, compter le nb de page depuis le parametre file
     file = open(params[:score][:file])
     reader = PDF::Reader.new(file)
-
     @score.page_count = reader.page_count
 
     if @score.save
+      @score.push_pages_to_cloudinary
       redirect_to @score, notice: 'Your score was successfully uploaded.'
     else
       render :new
@@ -73,6 +71,6 @@ class ScoresController < ApplicationController
   private
 
   def score_params
-    params.require(:score).permit(:title, :composer_id, :genre, :score_creation_date, :collection_id, :file)
+    params.require(:score).permit(:title, :composer_id, :genre, :score_creation_date, :collection_id, :file, :cover)
   end
 end

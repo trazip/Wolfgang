@@ -1,9 +1,12 @@
 import Rails from '@rails/ujs';
 import {create} from 'simple-drawing-board';
 
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
 
-
-const initCanvas = (zone) => {
+const initCanvas = async (zone) => {
+  await sleep(100)
   const height = zone.offsetHeight;
   const width = zone.offsetWidth;
   zone.insertAdjacentHTML('afterbegin', `<canvas id="canvas" height="${height}" width="${width}"> </canvas>`);
@@ -21,10 +24,11 @@ const submitData = (sdb, pageId) => {
 }
 
 
-const initDrawing = () => {
+const initDrawing = async () => {
   const zone = document.querySelector('#zone');
+  console.log('init drawing')
   if (zone) {
-    initCanvas(zone);
+    await initCanvas(zone);
 
     const actionButtons = document.querySelectorAll("#tools button");
     const undo = document.querySelector('#undo');
@@ -35,9 +39,16 @@ const initDrawing = () => {
     const viewer = document.querySelector('#viewer');
     const pageId = viewer.dataset.pageId;
     const annotation = viewer.dataset.annotation;
+    const ownerId = viewer.dataset.ownerId;
+    const userId = viewer.dataset.userId;
     const sdb = create(canvas);
     sdb.setLineSize(2);
-    sdb.setLineColor("#fc2525");
+
+    if (ownerId === userId) {
+      sdb.setLineColor("#FF1616");
+    } else {
+      sdb.setLineColor("#5271FF");
+    }
 
     if (actionButtons) {
       actionButtons.forEach((button) => {
