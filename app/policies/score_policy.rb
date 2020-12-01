@@ -25,9 +25,13 @@ class ScorePolicy < ApplicationPolicy
     is_user_score?
   end
 
+  def update?
+    is_user_score?
+  end
+
   private
 
   def is_user_score?
-    user == record.user
+    user == record.collection.user
   end
 end

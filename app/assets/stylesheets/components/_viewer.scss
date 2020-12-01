@@ -80,6 +80,42 @@
     }
   }
 
+  #info-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 18%;
+    z-index: 100;
+    border: none;
+    #info {
+      border-radius: 50%;
+      padding: 8px 10px 8px 10px;
+      border: none;
+      background-color: transparent;
+      color: #363636;
+    }
+    #info:focus{
+      outline:0;
+    }
+  }
+
+  #setting-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 70%;
+    z-index: 100;
+    border: none;
+    #setting {
+      border-radius: 50%;
+      padding: 8px 10px 8px 10px;
+      border: none;
+      background-color: transparent;
+      color: #363636;
+    }
+    #setting:focus{
+      outline:0;
+    }
+  }
+
 }
 
 
