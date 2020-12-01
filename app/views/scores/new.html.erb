@@ -1,9 +1,18 @@
-<div class="container full-height d-flex align-items-center>
-  <div class="container">
-    <div class="container-import">
-      <h2 class="text-center">Upload your score here</h2>
-      <%= render "form" %>
+<div class="container">
+  <div class="row my-5">
+    <div class="col-8 offset-2 shadow rounded p-4">
+      <div class="text-center">
+      <h2>Upload a score</h2>
+      </div>
+      <%= simple_form_for @score do |f| %>
+        <%= f.input :title, input_html: { autocomplete: "off"} %>
+        <%= f.association :composer, input_html: { id: "selectr", class: "form-control" } %>
+        <%= f.input :genre, as: :check_boxes, collection: Score::GENRES, input_html: { class: "tag-selector sr-only" }, item_wrapper_class: 'tag-item form-check-inline', item_label_class: 'form-check-label m-0'%>
+        <%= f.association :collection, collection: current_user.collections,  selected: current_user.collections.first.id %>
+        <%= f.input :cover, as: :file %>
+        <%= f.input :file, as: :file %>
+        <%= f.submit 'Upload score', class: "login-btn mt-5" %>
+      <% end %>
     </div>
   </div>
 </div>
- 

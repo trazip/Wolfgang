@@ -16,9 +16,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
-
-    <%= render 'shared/footer' unless params[:action] == 'viewer'%>
+    <div class="container-full-height">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' unless params[:action] == 'viewer' || params[:action] == 'new'%>
   </body>
 </html>

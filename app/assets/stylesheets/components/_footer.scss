@@ -22,6 +22,10 @@
   opacity: 0.50;
 }
 
-.full-height{
-  height: calc(100vh - 111px);
+// .full-height{
+//   height: calc(100vh - 111px);
+// }
+
+.container-full-height {
+  min-height: calc(100vh - 106px);
 }
