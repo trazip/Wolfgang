@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :collaborations, only: :create
 
   resources :users, only: [:show]
+
+  post "drawing", to: 'annotations#drawing'
 end
