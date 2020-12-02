@@ -34,12 +34,12 @@ pierre_first_collection.user = pierre
 pierre_first_collection.save!
 
 puts "Nathalie's first collection ✨"
-nathalie_first_collection = Collection.new(private: false)
+nathalie_first_collection = Collection.new(title: 'My collection', private: false)
 nathalie_first_collection.user = nathalie
 nathalie_first_collection.save!
 
 puts "Birth of Wolfgang Amadeus Mozart 👼 (1756 – 1791)"
-mozart = Composer.new(name: "W.A. Mozart", bio: "Wolfgang Amadeus Mozart (27 January 1756 – 5 December 1791) Le nom officiel de Mozart était : Joannes Chrysostomus Wolfgangus Theophilus Mozart. Il s'est d'ailleurs amusé tout au long de sa vie à déguiser et à déformer son identité en Mozartini, Gangflow (Wolfgang à l'envers), ou encore Trazom… On ne le verra jamais signer Amadeus (mais Amadé), ce prénom ne sera employé qu'après sa mort.")
+mozart = Composer.new(name: "W.A. Mozart", bio: "Wolfgang Amadeus Mozart (1756 – 1791) baptised as Johannes Chrysostomus Wolfgangus Theophilus Mozart. He composed more than 600 works, many of which are acknowledged as pinnacles of symphonic, concertante, chamber, operatic, and choral music. He is considered among the greatest classical composers of all time, and his influence on Western music is profound")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/wolfgang_amadeus_mozart.jpg")].first)
 mozart.picture.attach(io: file, filename: 'wolfgang_amadeus_mozart.jpg', content_type: 'image/jpg')
 mozart.save!
@@ -56,7 +56,7 @@ befraget_mich_ein_zartes_kind.save!
 push_pages_to_cloudinary(file, befraget_mich_ein_zartes_kind)
 
 puts "Birth of Giuseppe Verdi 👼 (1813 – 1901)"
-verdi = Composer.new(name: "G. Verdi", bio: "Giuseppe Fortunino Francesco Verdi (9 or 10 October 1813 – 27 January 1901) En panne d'inspiration, écrasé par les coups du destin, ses deux enfants puis sa femme meurent à quelques mois d'intervalle, le compositeur est au bord du gouffre lorsqu'on lui confie le livret de ce qui va devenir... Nabucco.")
+verdi = Composer.new(name: "G. Verdi", bio: "Giuseppe Fortunino Francesco Verdi (1813 – 1901) was an Italian opera composer. His operas remain extremely popular, especially the three peaks of his 'middle period': Rigoletto, Il trovatore and La traviata, and the 2013 bicentenary of his birth was widely celebrated in broadcasts and performances.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/giuseppe_verdi.jpg")].first)
 verdi.picture.attach(io: file, filename: 'giuseppe_verdi.jpg', content_type: 'image/jpg')
 verdi.save!
@@ -73,7 +73,7 @@ che_non_avrebbe_il_misero.save!
 push_pages_to_cloudinary(file, che_non_avrebbe_il_misero)
 
 puts "Birth of Justin Hurwitz 👼 (1985 - )"
-hurwitz = Composer.new(name: "J. Hurwitz", bio:"Justin Hurwitz (22 January 1985) Il est notamment connu pour ses collaborations avec le cinéaste Damien Chazelle sur les films Whiplash (2014) et La La Land (2016), film pour lequel il obtient deux Oscars en 2017 ")
+hurwitz = Composer.new(name: "J. Hurwitz", bio:"Justin Hurwitz (1985) is an American film composer and a television writer. He is best known for his longtime collaboration with director Damien Chazelle, scoring each of his films: Guy and Madeline on a Park Bench (2009), Whiplash (2014), La La Land (2016), and First Man (2018)")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/justin_hurwitz.jpg")].first)
 hurwitz.picture.attach(io: file, filename: 'justin_hurwitz.jpg', content_type: 'image/jpg')
 hurwitz.save!
@@ -90,7 +90,7 @@ mia_and_Sebastians_theme.save!
 push_pages_to_cloudinary(file, mia_and_Sebastians_theme)
 
 puts "Birth of Ella Fitzgerald 👼 (1917 – 1996)"
-fitzgerald = Composer.new(name: "E. Fitzgerald", bio:"Ella Jane Fitzgerald (April 25, 1917 – June 15, 1996) Elle est considérée comme l'une des plus importantes et célèbres chanteuses de jazz de l'histoire de ce genre musical, avec une tessiture de trois octaves, remarquable pour la pureté de sa voix et sa capacité d'improvisation, particulièrement en scat.")
+fitzgerald = Composer.new(name: "E. Fitzgerald", bio:"Ella Jane Fitzgerald (1917 – 1996) was an American jazz singer, sometimes referred to as the First Lady of Song, Queen of Jazz, and Lady Ella. She was noted for her purity of tone, impeccable diction, phrasing, timing, intonation, and a horn-like improvisational ability, particularly in her scat singing.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/ella_fitzgerald.jpg")].first)
 fitzgerald.picture.attach(io: file, filename: 'ella_fitzgerald.jpg', content_type: 'image/jpg')
 fitzgerald.save!
@@ -141,7 +141,7 @@ push_pages_to_cloudinary(file, all_of_me)
 # push_pages_to_cloudinary(file, gymnopedie_no_1)
 
 puts "Birth of Ennio Morricone 👼 (1928 – 2020)"
-morricone = Composer.new(name: "E. Morricone")
+morricone = Composer.new(name: "E. Morricone", bio: "Ennio Morricone (1928 – 2020) was an Italian composer, orchestrator, conductor, and trumpet player who wrote music in a wide range of styles. With more than 400 scores for cinema and television, as well as more than 100 classical works, Morricone is widely considered as one of the most prolific and greatest film composers of all time.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/ennio_morricone.jpg")].first)
 morricone.picture.attach(io: file, filename: 'ennio_morricone.jpg', content_type: 'image/jpg')
 morricone.save!
@@ -158,7 +158,7 @@ gabriels_oboe.save!
 push_pages_to_cloudinary(file, gabriels_oboe)
 
 puts "Birth of James Brown 👼 (1933 – 2006)"
-brown = Composer.new(name: "J. Brown")
+brown = Composer.new(name: "J. Brown", bio: "James Joseph Brown (1933 – 2006) was an American singer, songwriter, dancer, musician, record producer and bandleader. A progenitor of funk music and a major figure of 20th century music and dance, he is often referred to by the honorific nicknames Godfather of Soul, Mr. Dynamite, and Soul Brother No. 1.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/james_brown.jpg")].first)
 brown.picture.attach(io: file, filename: 'james_brown.jpg', content_type: 'image/jpg')
 brown.save!
@@ -175,7 +175,7 @@ i_feel_good.save!
 push_pages_to_cloudinary(file, i_feel_good)
 
 puts "Birth of Franz Schubert 👼 (1797 – 1828)"
-schubert = Composer.new(name: "F. Schubert")
+schubert = Composer.new(name: "F. Schubert", bio: "Franz Peter Schubert (1797 – 1828) was an Austrian composer of the late Classical and early Romantic eras. Despite his short lifetime, Schubert left behind a vast oeuvre, including more than 600 secular vocal works (mainly lieder), seven complete symphonies, sacred music, operas, incidental music and a large body of piano and chamber music")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/franz_schubert.jpg")].first)
 schubert.picture.attach(io: file, filename: 'franz_schubert.jpg', content_type: 'image/jpg')
 schubert.save!
@@ -192,7 +192,7 @@ standchen_from_Schwanengesang_Serenade_for_Piano.save!
 push_pages_to_cloudinary(file, standchen_from_Schwanengesang_Serenade_for_Piano)
 
 puts "Birth of Hans Zimmer 👼 (1957 - )"
-zimmer = Composer.new(name: "H. Zimmer")
+zimmer = Composer.new(name: "H. Zimmer", bio: "Hans Florian Zimmer (1957) is a German film score composer and record producer. Zimmer's works are notable for integrating electronic music sounds with traditional orchestral arrangements. Since the 1980s, he has composed music for over 150 films.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/hans_zimmer.jpg")].first)
 zimmer.picture.attach(io: file, filename: 'hans_zimmer.jpg', content_type: 'image/jpg')
 zimmer.save!
@@ -209,7 +209,7 @@ time.save!
 push_pages_to_cloudinary(file, time)
 
 puts "Birth of Jacques Offenbach 👼 (1819 - 1880)"
-offenbach = Composer.new(name: "J. Offenbach")
+offenbach = Composer.new(name: "J. Offenbach", bio: "Jacques Offenbach (1819 - 1880) was a German-born French composer, cellist and impresario of the Romantic period. He is remembered for his nearly 100 operettas of the 1850s to the 1870s, and his uncompleted opera The Tales of Hoffmann.")
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/jacques_offenbach.jpg")].first)
 offenbach.picture.attach(io: file, filename: 'jacques_offenbach.jpg.jpg', content_type: 'image/jpg')
 offenbach.save!
