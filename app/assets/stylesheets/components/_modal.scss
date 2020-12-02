@@ -1,0 +1,32 @@
+.card-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFF;
+  background-clip: border-box;
+  border-radius: 39px;
+}
+.modal-header-2 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 2.2rem;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+}
+#rounded-img-modal {
+  border-radius: 16px;
+}
+
+.card-body-2 {
+  text-align: justify;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem 0;
+}
+
+#new_collection_btn {
+  margin: 0 auto;
+}
