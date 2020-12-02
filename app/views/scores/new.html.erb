@@ -1,6 +1,7 @@
+
 <div class="container">
   <div class="row my-5">
-    <div class="col-8 offset-2 shadow rounded p-4">
+    <div class="col-8 offset-2 shadow rounded-form p-4">
       <div class="text-center">
       <h2>Upload a score</h2>
       </div>
@@ -11,7 +12,9 @@
         <%= f.association :collection, collection: current_user.collections,  selected: current_user.collections.first.id %>
         <%= f.input :cover, as: :file %>
         <%= f.input :file, as: :file %>
-        <%= f.submit 'Upload score', class: "login-btn mt-5" %>
+        <div class="d-flex justify-content-center mt-5 align-items-center">
+          <%= f.submit 'Upload score', class: "login-btn" %>
+        </div>
       <% end %>
     </div>
   </div>
