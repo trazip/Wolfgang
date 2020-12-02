@@ -106,39 +106,39 @@ all_of_me.cover.attach(io: cover, filename: 'cover_4', content_type: 'image/png'
 all_of_me.save!
 push_pages_to_cloudinary(file, all_of_me)
 
-puts "Creation of The Cinematic Orchestra 🎉 (1999 - )"
-cinematic_orchestra = Composer.new(name: "The Cinematic Orchestra", bio: "The Cinematic Orchestra est un groupe britannique de nu jazz et downtempo fondé en 1999 par Jason Swinscoe, alors employé de la maison de disques londonienne Ninja Tune.")
-file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/cinematic_orchestra.jpg")].first)
-cinematic_orchestra.picture.attach(io: file, filename: 'cinematic_orchestra.jpg', content_type: 'image/jpg')
-cinematic_orchestra.save!
+# puts "Creation of The Cinematic Orchestra 🎉 (1999 - )"
+# cinematic_orchestra = Composer.new(name: "The Cinematic Orchestra", bio: "The Cinematic Orchestra est un groupe britannique de nu jazz et downtempo fondé en 1999 par Jason Swinscoe, alors employé de la maison de disques londonienne Ninja Tune.")
+# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/cinematic_orchestra.jpg")].first)
+# cinematic_orchestra.picture.attach(io: file, filename: 'cinematic_orchestra.jpg', content_type: 'image/jpg')
+# cinematic_orchestra.save!
 
-puts "5 > Arrival of the birds - the cinematic orchestra 🎼"
-arrival_of_the_birds = Score.new(title: "Arrival of the birds", score_creation_date: "2012")
-arrival_of_the_birds.composer = cinematic_orchestra
-arrival_of_the_birds.collection = pierre_first_collection
-file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Arrival_of_the_birds_cinematic_orchestra.pdf")].first)
-arrival_of_the_birds.file.attach(io: file, filename: 'Arrival_of_the_birds_cinematic_orchestra.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/5.png'))
-arrival_of_the_birds.cover.attach(io: cover, filename: 'cover_5', content_type: 'image/png')
-arrival_of_the_birds.save!
-push_pages_to_cloudinary(file, arrival_of_the_birds)
+# puts "5 > Arrival of the birds - the cinematic orchestra 🎼"
+# arrival_of_the_birds = Score.new(title: "Arrival of the birds", score_creation_date: "2012")
+# arrival_of_the_birds.composer = cinematic_orchestra
+# arrival_of_the_birds.collection = pierre_first_collection
+# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Arrival_of_the_birds_cinematic_orchestra.pdf")].first)
+# arrival_of_the_birds.file.attach(io: file, filename: 'Arrival_of_the_birds_cinematic_orchestra.pdf', content_type: 'application/pdf')
+# cover = File.open(File.join(Rails.root,'app/assets/images/covers/5.png'))
+# arrival_of_the_birds.cover.attach(io: cover, filename: 'cover_5', content_type: 'image/png')
+# arrival_of_the_birds.save!
+# push_pages_to_cloudinary(file, arrival_of_the_birds)
 
-puts "Birth of Erik Satie 👼 (1866 – 1925)"
-satie = Composer.new(name: "E. Satie", bio: "Éric Alfred Leslie Satie (17 May 1866 – 1 July 1925) Associé un temps au symbolisme, mais inclassable, il a été reconnu comme précurseur de plusieurs mouvements, dont le surréalisme, le minimalisme, la musique répétitive et le théâtre de l'absurde.")
-file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/erik_satie.jpg")].first)
-satie.picture.attach(io: file, filename: 'erik_satie.jpg', content_type: 'image/jpg')
-satie.save!
+# puts "Birth of Erik Satie 👼 (1866 – 1925)"
+# satie = Composer.new(name: "E. Satie", bio: "Éric Alfred Leslie Satie (17 May 1866 – 1 July 1925) Associé un temps au symbolisme, mais inclassable, il a été reconnu comme précurseur de plusieurs mouvements, dont le surréalisme, le minimalisme, la musique répétitive et le théâtre de l'absurde.")
+# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/erik_satie.jpg")].first)
+# satie.picture.attach(io: file, filename: 'erik_satie.jpg', content_type: 'image/jpg')
+# satie.save!
 
-puts "6 > Erik_Satie_-_Gymnopedie_No.1 🎼"
-gymnopedie_no_1 = Score.new(title: "Gymnopédie N°1", score_creation_date: "1897")
-gymnopedie_no_1.composer = satie
-gymnopedie_no_1.collection = nathalie_first_collection
-file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Erik_Satie_Gymnopedie_No_1.pdf")].first)
-gymnopedie_no_1.file.attach(io: file, filename: 'Erik_Satie_Gymnopedie_No_1.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/6.png'))
-gymnopedie_no_1.cover.attach(io: cover, filename: 'cover_6', content_type: 'image/png')
-gymnopedie_no_1.save!
-push_pages_to_cloudinary(file, gymnopedie_no_1)
+# puts "6 > Erik_Satie_-_Gymnopedie_No.1 🎼"
+# gymnopedie_no_1 = Score.new(title: "Gymnopédie N°1", score_creation_date: "1897")
+# gymnopedie_no_1.composer = satie
+# gymnopedie_no_1.collection = nathalie_first_collection
+# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Erik_Satie_Gymnopedie_No_1.pdf")].first)
+# gymnopedie_no_1.file.attach(io: file, filename: 'Erik_Satie_Gymnopedie_No_1.pdf', content_type: 'application/pdf')
+# cover = File.open(File.join(Rails.root,'app/assets/images/covers/6.png'))
+# gymnopedie_no_1.cover.attach(io: cover, filename: 'cover_6', content_type: 'image/png')
+# gymnopedie_no_1.save!
+# push_pages_to_cloudinary(file, gymnopedie_no_1)
 
 puts "Birth of Ennio Morricone 👼 (1928 – 2020)"
 morricone = Composer.new(name: "E. Morricone")

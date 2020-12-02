@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "My library", root_path, class: "nav-link navbar-link" %>
+        <%= link_to "My library", root_path, class: "nav-link navbar-link #{"navbar-active" if params[:action] == "index" }" %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
