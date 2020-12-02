@@ -6,6 +6,9 @@ const initSwiper = () => {
     slidesPerView: 2,
     spaceBetween: 16,
     loop: true,
+    autoplay: {
+    delay: 1500,
+    },
     mousewheel: true,
     navigation: {
       nextEl: '.swiper-button-next',
