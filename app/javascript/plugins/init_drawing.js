@@ -109,6 +109,7 @@ const initDrawing = async () => {
     const draw = () => {
       const form = new FormData();
       form.append('data', sdb.toDataURL({type:"image/png"}, {isOverlay: true}));
+      form.append('user_id', userId);
 
       Rails.ajax({
         url: `/drawing?page_id=${pageId}`,
@@ -117,10 +118,10 @@ const initDrawing = async () => {
       })
     }
 
-    sdb.observer.on('draw', _.throttle(draw, 1000));
+    sdb.observer.on('draw', _.throttle(draw, 50));
 
     viewer.addEventListener('drawing', (event) => {
-      if (sdb.mode === 'draw') {
+      if (sdb.mode === 'draw' && event.detail.userId !== userId) {
       sdb.fillImageByDataURL(event.detail.data);
       }
     })

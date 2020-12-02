@@ -15,7 +15,7 @@ class AnnotationsController < ApplicationController
     cable_ready["drawing-stream"].dispatch_event(
       selector: "#viewer",
       name: "drawing",
-      detail: { data: params[:data], page_id: params[:page_id] }
+      detail: { data: params[:data], page_id: params[:page_id], user_id: params[:user_id] }
     )
 
     cable_ready["drawing-stream"].set_dataset_property(
