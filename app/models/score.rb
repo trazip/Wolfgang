@@ -1,7 +1,7 @@
 class Score < ApplicationRecord
   has_many :pages, dependent: :destroy
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, source: :user
+  # has_many :collaborators, through: :collaborations, source: :user
 
   belongs_to :collection
   belongs_to :composer
@@ -19,5 +19,9 @@ class Score < ApplicationRecord
 
   def shared?
     collaborations.any?
+  end
+
+  def collaborators(current_user)
+    [user, collaborations.map(&:user)].flatten.uniq.reject { |user| user == current_user }
   end
 end

@@ -17,7 +17,7 @@ class ScorePolicy < ApplicationPolicy
     return true
   end
 
-   def show?
+  def show?
     return true
   end
 

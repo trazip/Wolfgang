@@ -94,26 +94,9 @@
   <% if @collab_scores.any? %>
      <div class="container mb-5">
         <div class="headings d-flex flex-column pt-3 pb-5">
-          <h2 class="text-left py-3">My shared scores</h2>
+          <h2 class="text-left py-3">My collaborations</h2>
             <div class="grid-container" id="scores-list">
-              <% @collab_scores.each do |score| %>
-                  <%= link_to viewer_score_path(score) do %>
-                    <div class="score-card d-flex flex-column align-items-start">
-                      <% if score.cover.attached? %>
-                        <img src="<%= cl_image_path score.cover.key, height: 180, width: 140 %>">
-                      <% else %>
-                        <img src="https://cdn.glitch.com/96d14086-88aa-4431-9b90-c5a325656bc3%2Fwolfgang-cover.png?v=1606244253539">
-                      <% end %>
-                      <div class="score-details">
-                        <% score.collaborators.each do |collaborator| %>
-                        <%= cl_image_tag collaborator.picture.key, class: "avatar" %>
-                        <% end %>
-                        <span><%= score.composer.name %></span>
-                        <h4><%= score.title %></h4>
-                      </div>
-                    </div>
-                  <% end %>
-              <% end %>
+              <%= render "scores/scores_list", scores: @collab_scores %>
             </div>
         </div>
      </div>

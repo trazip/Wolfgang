@@ -9,9 +9,11 @@ class ScoresController < ApplicationController
       scores.title ILIKE :query \
       OR composers.name ILIKE :query \ "
       @scores = policy_scope(Score.joins(:composer).where(sql_query, query: "%#{params[:search][:query]}%"))
+                            .select { |score| score.collection.user == current_user }
     else
-      @scores = policy_scope(Score)
+      @scores = policy_scope(Score).select { |score| score.collection.user == current_user }
     end
+
     @composers = Composer.all
     @collab_scores = current_user.collab_scores
   end

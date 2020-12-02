@@ -19,4 +19,9 @@
   transition: box-shadow .4s;
   box-shadow: 0 4px 0 0 rgb(255, 183, 0);
   text-decoration: none;
+  color: rgb(255, 183, 0) !important;
+}
+
+.navbar-active {
+  color: #000 !important;
 }

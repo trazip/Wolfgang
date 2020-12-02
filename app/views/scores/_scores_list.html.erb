@@ -12,7 +12,7 @@
       </div>
       <% if score.shared? %>
         <span>
-          <% score.collaborators.each do |collaborator| %>
+          <% score.collaborators(current_user).each do |collaborator| %>
             <%= cl_image_tag collaborator.picture.key, class: "avatar-bordered collab_thumbnail" %>
           <% end %>
         </span>

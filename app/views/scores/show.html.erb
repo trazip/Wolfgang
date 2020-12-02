@@ -10,7 +10,11 @@
           <h2><%= @score.title %></h2>
           <h4><%= @score.composer.name %></h4>
           <br>
-          <%= link_to "Open in the viewer", viewer_score_path(@score), class: "login-btn mt-5" %>
+          <% if @score.pages.count < @score.page_count %>
+            <%= render "loader" %>
+          <% else %>
+            <%= link_to "Open in the viewer", viewer_score_path(@score), class: "login-btn mt-5" %>
+          <% end %>
         </div>
       </div>
      <div class="card-body border-top border-dark">
@@ -22,3 +26,16 @@
      </div>
   </div>
 </div>
+
+<style>
+  .loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+</style>
