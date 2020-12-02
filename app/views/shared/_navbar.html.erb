@@ -3,6 +3,12 @@
     <%= image_tag "https://i1.wp.com/wbyciroc.com/wp-content/uploads/2019/03/LOGO-W-GOOD-copie.png?fit=2732%2C2048&ssl=1" %>
     <% end %>
 
+  <div>
+    <p class="m-0 heading_title heading_title_3">
+        <strong> <%= (@score.title + " - " + @score.composer.name) if controller.action_name == 'viewer' %> </strong>
+    </p>
+  </div>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
