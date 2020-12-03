@@ -146,14 +146,14 @@ file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/comp
 morricone.picture.attach(io: file, filename: 'ennio_morricone.jpg', content_type: 'image/jpg')
 morricone.save!
 
-puts "7 > Gabriels_Oboe_-_Ennio_Morricone 🎼"
+puts "5 > Gabriels_Oboe_-_Ennio_Morricone 🎼"
 gabriels_oboe = Score.new(title: "Gabriel's Oboe", score_creation_date: "1986")
 gabriels_oboe.composer = morricone
 gabriels_oboe.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Gabriels_Oboe_Ennio_Morricone.pdf")].first)
 gabriels_oboe.file.attach(io: file, filename: 'Gabriels_Oboe_Ennio_Morricone.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/7.png'))
-gabriels_oboe.cover.attach(io: cover, filename: 'cover_7', content_type: 'image/png')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/5.png'))
+gabriels_oboe.cover.attach(io: cover, filename: 'cover_5', content_type: 'image/png')
 gabriels_oboe.save!
 push_pages_to_cloudinary(file, gabriels_oboe)
 
@@ -169,8 +169,8 @@ ich_liebe_dich.composer = beethoven
 ich_liebe_dich.collection = pierre_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Ich_Liebe_Dich_Beethoven.pdf")].first)
 ich_liebe_dich.file.attach(io: file, filename: 'Ich_Liebe_Dich_Beethoven.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/8.png'))
-ich_liebe_dich.cover.attach(io: cover, filename: 'cover_8', content_type: 'image/png')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/9.png'))
+ich_liebe_dich.cover.attach(io: cover, filename: 'cover_9', content_type: 'image/png')
 ich_liebe_dich.save!
 push_pages_to_cloudinary(file, ich_liebe_dich)
 
@@ -186,8 +186,8 @@ standchen_from_Schwanengesang_Serenade_for_Piano.composer = schubert
 standchen_from_Schwanengesang_Serenade_for_Piano.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf")].first)
 standchen_from_Schwanengesang_Serenade_for_Piano.file.attach(io: file, filename: 'Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/9.png'))
-standchen_from_Schwanengesang_Serenade_for_Piano.cover.attach(io: cover, filename: 'cover_9', content_type: 'image/png')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/6.png'))
+standchen_from_Schwanengesang_Serenade_for_Piano.cover.attach(io: cover, filename: 'cover_6', content_type: 'image/png')
 standchen_from_Schwanengesang_Serenade_for_Piano.save!
 push_pages_to_cloudinary(file, standchen_from_Schwanengesang_Serenade_for_Piano)
 
@@ -203,8 +203,8 @@ time.collection = nathalie_first_collection
 time.composer = zimmer
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Time_Inception_Hans_Zimmer.pdf")].first)
 time.file.attach(io: file, filename: 'Time_Inception_Hans_Zimmer.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/10.png'))
-time.cover.attach(io: cover, filename: 'cover_10', content_type: 'image/png')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/7.png'))
+time.cover.attach(io: cover, filename: 'cover_7', content_type: 'image/png')
 time.save!
 push_pages_to_cloudinary(file, time)
 
