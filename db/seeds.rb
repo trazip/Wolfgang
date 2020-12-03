@@ -157,22 +157,22 @@ gabriels_oboe.cover.attach(io: cover, filename: 'cover_7', content_type: 'image/
 gabriels_oboe.save!
 push_pages_to_cloudinary(file, gabriels_oboe)
 
-puts "Birth of James Brown 👼 (1933 – 2006)"
-brown = Composer.new(name: "J. Brown", bio: "James Joseph Brown (1933 – 2006) was an American singer, songwriter, dancer, musician, record producer and bandleader. A progenitor of funk music and a major figure of 20th century music and dance, he is often referred to by the honorific nicknames Godfather of Soul, Mr. Dynamite, and Soul Brother No. 1.")
-file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/james_brown.jpg")].first)
-brown.picture.attach(io: file, filename: 'james_brown.jpg', content_type: 'image/jpg')
-brown.save!
+puts "Birth of L. van Beethoven 👼 (1770 – 1827)"
+beethoven = Composer.new(name: "L. van Beethoven", bio: "Ludwig van Beethoven (1770 – 1827) was a German composer and pianist whose music ranks amongst the most performed of the classical music repertoire; he remains one of the most admired composers in the history of Western music. His works span the transition from the classical period to the romantic era in classical music.")
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/Beethoven.jpg")].first)
+beethoven.picture.attach(io: file, filename: 'Beethoven.jpg', content_type: 'image/jpg')
+beethoven.save!
 
-puts "8 > I_FEEL_GOOD_de_James_Brown 🎼"
-i_feel_good = Score.new(title: "I feel good", score_creation_date: "1964")
-i_feel_good.composer = brown
-i_feel_good.collection = nathalie_first_collection
-file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/I_FEEL_GOOD_de_James_Brown.pdf")].first)
-i_feel_good.file.attach(io: file, filename: 'I_FEEL_GOOD_de_James_Brown.pdf', content_type: 'application/pdf')
+puts "8 > Ich_Liebe_Dich_Beethoven 🎼"
+ich_liebe_dich = Score.new(title: "I feel good", score_creation_date: "1964")
+ich_liebe_dich.composer = beethoven
+ich_liebe_dich.collection = pierre_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Ich_Liebe_Dich_Beethoven.pdf")].first)
+ich_liebe_dich.file.attach(io: file, filename: 'Ich_Liebe_Dich_Beethoven.pdf', content_type: 'application/pdf')
 cover = File.open(File.join(Rails.root,'app/assets/images/covers/8.png'))
-i_feel_good.cover.attach(io: cover, filename: 'cover_8', content_type: 'image/png')
-i_feel_good.save!
-push_pages_to_cloudinary(file, i_feel_good)
+ich_liebe_dich.cover.attach(io: cover, filename: 'cover_8', content_type: 'image/png')
+ich_liebe_dich.save!
+push_pages_to_cloudinary(file, ich_liebe_dich)
 
 puts "Birth of Franz Schubert 👼 (1797 – 1828)"
 schubert = Composer.new(name: "F. Schubert", bio: "Franz Peter Schubert (1797 – 1828) was an Austrian composer of the late Classical and early Romantic eras. Despite his short lifetime, Schubert left behind a vast oeuvre, including more than 600 secular vocal works (mainly lieder), seven complete symphonies, sacred music, operas, incidental music and a large body of piano and chamber music")
