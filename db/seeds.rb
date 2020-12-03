@@ -245,4 +245,4 @@ sonata.file.attach(io: file, filename: 'sonata.pdf', content_type: 'application/
 cover = File.open(File.join(Rails.root,'app/assets/images/covers/13.png'))
 sonata.cover.attach(io: cover, filename: 'cover_13', content_type: 'image/png')
 sonata.save!
-push_pages_to_cloudinary(file, se)
+push_pages_to_cloudinary(file, sonata)
