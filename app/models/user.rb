@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :collab_scores, through: :collaborations, source: :score
   has_many :annotations, dependent: :destroy
 
+  validates :username, presence: true
   has_one_attached :picture
 end
