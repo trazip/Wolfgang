@@ -27,8 +27,6 @@
         <li class="nav-item dropdown">
           <% if current_user.picture.attached? %>
             <%= cl_image_tag current_user.picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "https://i1.wp.com/wbyciroc.com/wp-content/uploads/2019/03/LOGO-W-GOOD-copie.png?fit=2732%2C2048&ssl=1", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%#= link_to "My collections", user_path(current_user), class: "dropdown-item" %>
