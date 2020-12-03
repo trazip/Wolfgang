@@ -9,7 +9,7 @@ a {
 .score-card {
   position: relative;
   text-align: center;
-  width: 140px;
+  width: 200px;
   height: 260px;
   font-family: system-ui;
   margin: auto;
@@ -18,8 +18,8 @@ a {
   .cover {
     background-position: center;
     background-size: cover;
-    width: 140px;
-    height: 180px;
+    width: 200px;
+    height: 240px;
     border-radius: 15px;
   }
   span {
@@ -28,6 +28,7 @@ a {
   }
 
   .score-details {
+    display: none;
     margin: 0 auto;
     h4 {
       margin: 0px;
