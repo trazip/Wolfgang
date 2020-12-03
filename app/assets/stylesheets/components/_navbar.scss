@@ -3,6 +3,10 @@
   background: white;
 }
 
+.navbar-lewagon:hover {
+  box-shadow: 3px 5px 7px -8px #000;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
