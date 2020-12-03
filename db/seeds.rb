@@ -164,7 +164,7 @@ beethoven.picture.attach(io: file, filename: 'Beethoven.jpg', content_type: 'ima
 beethoven.save!
 
 puts "8 > Ich_Liebe_Dich_Beethoven 🎼"
-ich_liebe_dich = Score.new(title: "I feel good", score_creation_date: "1964")
+ich_liebe_dich = Score.new(title: "Ich Liebe dich", score_creation_date: "1964")
 ich_liebe_dich.composer = beethoven
 ich_liebe_dich.collection = pierre_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Ich_Liebe_Dich_Beethoven.pdf")].first)
