@@ -220,8 +220,8 @@ bolero.collection = nathalie_first_collection
 bolero.composer = offenbach
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/bolero_de_charles_martel.pdf")].first)
 bolero.file.attach(io: file, filename: 'bolero.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/11.png'))
-bolero.cover.attach(io: cover, filename: 'cover_11', content_type: 'image/png')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/8.png'))
+bolero.cover.attach(io: cover, filename: 'cover_8', content_type: 'image/png')
 bolero.save!
 push_pages_to_cloudinary(file, bolero)
 
@@ -231,8 +231,8 @@ se.collection = nathalie_first_collection
 se.composer = mozart
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/se_vuol_ballare.pdf")].first)
 se.file.attach(io: file, filename: 'se_Inception_Hans_Zimmer.pdf', content_type: 'application/pdf')
-cover = File.open(File.join(Rails.root,'app/assets/images/covers/12.png'))
-se.cover.attach(io: cover, filename: 'cover_12', content_type: 'image/png')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/10.png'))
+se.cover.attach(io: cover, filename: 'cover_10', content_type: 'image/png')
 se.save!
 push_pages_to_cloudinary(file, se)
 
