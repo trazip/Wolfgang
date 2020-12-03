@@ -66,8 +66,8 @@
       </div>
       <!-- End Slider Row -->
   <!-- </div> -->
-  <div class="container mb-5">
-    <div class="headings d-flex flex-row pt-3 pb-5">
+  <div class="container mb-3">
+    <div class="headings d-flex flex-row pt-3 pb-3">
       <h2 class="text-left py-3">
       <%= link_to 'My Scores', scores_path %>
       </h2>
@@ -88,13 +88,13 @@
           <%= render "scores/scores_list", scores: @scores %>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
 <!-- Start My Collaboration -->
   <% if @collab_scores.any? %>
-     <div class="container mb-5">
-        <div class="headings d-flex flex-column pt-3 pb-5">
-          <h2 class="text-left py-3">My collaborations</h2>
+     <div class="container mb-3">
+        <div class="headings d-flex flex-column pt-3 pb-3">
+          <h2 class="text-left py-4">My collaborations</h2>
             <div class="grid-container" id="scores-list">
               <%= render "scores/scores_list", scores: @collab_scores %>
             </div>
