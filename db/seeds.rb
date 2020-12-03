@@ -235,3 +235,14 @@ cover = File.open(File.join(Rails.root,'app/assets/images/covers/12.png'))
 se.cover.attach(io: cover, filename: 'cover_12', content_type: 'image/png')
 se.save!
 push_pages_to_cloudinary(file, se)
+
+puts "12  > K301 - W.A. Mozart 🎼"
+sonata = Score.new(title: "Sonata for violin and piano K.301", score_creation_date: "1778")
+sonata.collection = nathalie_first_collection
+sonata.composer = mozart
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Sonata_for_violin_and_piano_K301.pdf")].first)
+sonata.file.attach(io: file, filename: 'sonata.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/13.png'))
+sonata.cover.attach(io: cover, filename: 'cover_13', content_type: 'image/png')
+sonata.save!
+push_pages_to_cloudinary(file, se)
