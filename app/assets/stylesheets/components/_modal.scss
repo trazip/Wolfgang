@@ -1,3 +1,4 @@
+// remove the border lines
 .card-modal {
   position: relative;
   display: flex;
@@ -8,6 +9,7 @@
   background-clip: border-box;
   border-radius: 39px;
 }
+// remove the border lines in the title
 .modal-header-2 {
   display: flex;
   align-items: flex-start;
@@ -28,5 +30,9 @@
 }
 
 #new_collection_btn {
+  margin: 0 auto;
+}
+
+#save_title_btn {
   margin: 0 auto;
 }
