@@ -7,6 +7,7 @@ Composer.destroy_all
 Score.destroy_all
 Page.destroy_all
 Collection.destroy_all
+Collaboration.destroy_all
 
 def push_pages_to_cloudinary(file, score)
   reader = PDF::Reader.new(open(file))
@@ -28,6 +29,20 @@ nathalie.picture.attach(io: file, filename: 'nathalie_freyburger.jpg', content_t
 nathalie.save!
 puts "🐱‍🏍🐱‍🏍🐱‍🏍"
 
+puts "Creating Bastien 🤩"
+bastien = User.new(email: "bastien@getwolfgang.com", password: "123456", username: "Bastien", first_name: "Bastien", last_name: "Duban" )
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/users/bastien_duban.jpg")].first)
+bastien.picture.attach(io: file, filename: 'bastien_duban.jpg', content_type: 'image/jpg')
+bastien.save!
+puts "🐱‍🏍🐱‍🏍🐱‍🏍"
+
+puts "Creating Gael 🤩"
+gael = User.new(email: "gael@getwolfgang.com", password: "123456", username: "Gael", first_name: "Gael", last_name: "Gendre" )
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/users/gael_gendre.jpg")].first)
+gael.picture.attach(io: file, filename: 'gael_gendre.jpg', content_type: 'image/jpg')
+gael.save!
+puts "🐱‍🏍🐱‍🏍🐱‍🏍"
+
 puts "Pierre's first collection ✨"
 pierre_first_collection = Collection.new(title: 'My collection', private: false)
 pierre_first_collection.user = pierre
@@ -37,6 +52,16 @@ puts "Nathalie's first collection ✨"
 nathalie_first_collection = Collection.new(title: 'My collection', private: false)
 nathalie_first_collection.user = nathalie
 nathalie_first_collection.save!
+
+puts "Bastien's first collection ✨"
+bastien_first_collection = Collection.new(title: 'My collection', private: false)
+bastien_first_collection.user = bastien
+bastien_first_collection.save!
+
+puts "Gael's first collection ✨"
+gael_first_collection = Collection.new(title: 'My collection', private: false)
+gael_first_collection.user = gael
+gael_first_collection.save!
 
 puts "Birth of Wolfgang Amadeus Mozart 👼 (1756 – 1791)"
 mozart = Composer.new(name: "W.A. Mozart", bio: "Wolfgang Amadeus Mozart (1756 – 1791) baptised as Johannes Chrysostomus Wolfgangus Theophilus Mozart. He composed more than 600 works, many of which are acknowledged as pinnacles of symphonic, concertante, chamber, operatic, and choral music. He is considered among the greatest classical composers of all time, and his influence on Western music is profound")
@@ -64,7 +89,7 @@ verdi.save!
 puts "2 > Che non avrebbe il misero 🎼"
 che_non_avrebbe_il_misero = Score.new(title: "Che non avrebbe il misero", score_creation_date: "1845", page_count: 2)
 che_non_avrebbe_il_misero.composer = verdi
-che_non_avrebbe_il_misero.collection = pierre_first_collection
+che_non_avrebbe_il_misero.collection = nathalie_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Che_non_avrebbe_il_misero_Verdi.pdf")].first)
 che_non_avrebbe_il_misero.file.attach(io: file, filename: 'Che_non_avrebbe_il_misero_Verdi.pdf', content_type: 'application/pdf')
 cover = File.open(File.join(Rails.root,'app/assets/images/covers/2.png'))
@@ -81,7 +106,7 @@ hurwitz.save!
 puts "3 > Mia & Sebastian's Theme 🎼"
 mia_and_Sebastians_theme = Score.new(title: "Mia & Sebastian's Theme", score_creation_date: "2010")
 mia_and_Sebastians_theme.composer = hurwitz
-mia_and_Sebastians_theme.collection = pierre_first_collection
+mia_and_Sebastians_theme.collection = gael_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Mia_and_Sebastians_Theme_from_La_La_Land.pdf")].first)
 mia_and_Sebastians_theme.file.attach(io: file, filename: 'Mia_and_Sebastians_Theme_from_La_La_Land.pdf', content_type: 'application/pdf')
 cover = File.open(File.join(Rails.root,'app/assets/images/covers/3.png'))
@@ -97,7 +122,7 @@ fitzgerald.save!
 
 puts "4 > All Of Me - Ella Fitzgerald 🎼"
 all_of_me = Score.new(title: "All Of Me", score_creation_date: "1931")
-all_of_me.collection = pierre_first_collection
+all_of_me.collection = gael_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/All_Of_Me_Ella_Fitzgerald_Solo_Transcription.pdf")].first)
 all_of_me.file.attach(io: file, filename: 'All_Of_Me_Ella_Fitzgerald_Solo_Transcription.pdf', content_type: 'application/pdf')
 all_of_me.composer = fitzgerald
@@ -106,39 +131,39 @@ all_of_me.cover.attach(io: cover, filename: 'cover_4', content_type: 'image/png'
 all_of_me.save!
 push_pages_to_cloudinary(file, all_of_me)
 
-# puts "Creation of The Cinematic Orchestra 🎉 (1999 - )"
-# cinematic_orchestra = Composer.new(name: "The Cinematic Orchestra", bio: "The Cinematic Orchestra est un groupe britannique de nu jazz et downtempo fondé en 1999 par Jason Swinscoe, alors employé de la maison de disques londonienne Ninja Tune.")
-# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/cinematic_orchestra.jpg")].first)
-# cinematic_orchestra.picture.attach(io: file, filename: 'cinematic_orchestra.jpg', content_type: 'image/jpg')
-# cinematic_orchestra.save!
+puts "Creation of The Cinematic Orchestra 🎉 (1999 - )"
+cinematic_orchestra = Composer.new(name: "The Cinematic Orchestra", bio: "The Cinematic Orchestra est un groupe britannique de nu jazz et downtempo fondé en 1999 par Jason Swinscoe, alors employé de la maison de disques londonienne Ninja Tune.")
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/cinematic_orchestra.jpg")].first)
+cinematic_orchestra.picture.attach(io: file, filename: 'cinematic_orchestra.jpg', content_type: 'image/jpg')
+cinematic_orchestra.save!
 
-# puts "5 > Arrival of the birds - the cinematic orchestra 🎼"
-# arrival_of_the_birds = Score.new(title: "Arrival of the birds", score_creation_date: "2012")
-# arrival_of_the_birds.composer = cinematic_orchestra
-# arrival_of_the_birds.collection = pierre_first_collection
-# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Arrival_of_the_birds_cinematic_orchestra.pdf")].first)
-# arrival_of_the_birds.file.attach(io: file, filename: 'Arrival_of_the_birds_cinematic_orchestra.pdf', content_type: 'application/pdf')
-# cover = File.open(File.join(Rails.root,'app/assets/images/covers/5.png'))
-# arrival_of_the_birds.cover.attach(io: cover, filename: 'cover_5', content_type: 'image/png')
-# arrival_of_the_birds.save!
-# push_pages_to_cloudinary(file, arrival_of_the_birds)
+puts "5 > Arrival of the birds - the cinematic orchestra 🎼"
+arrival_of_the_birds = Score.new(title: "Arrival of the birds", score_creation_date: "2012")
+arrival_of_the_birds.composer = cinematic_orchestra
+arrival_of_the_birds.collection = gael_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Arrival_of_the_birds_cinematic_orchestra.pdf")].first)
+arrival_of_the_birds.file.attach(io: file, filename: 'Arrival_of_the_birds_cinematic_orchestra.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/12.png'))
+arrival_of_the_birds.cover.attach(io: cover, filename: 'cover_12', content_type: 'image/png')
+arrival_of_the_birds.save!
+push_pages_to_cloudinary(file, arrival_of_the_birds)
 
-# puts "Birth of Erik Satie 👼 (1866 – 1925)"
-# satie = Composer.new(name: "E. Satie", bio: "Éric Alfred Leslie Satie (17 May 1866 – 1 July 1925) Associé un temps au symbolisme, mais inclassable, il a été reconnu comme précurseur de plusieurs mouvements, dont le surréalisme, le minimalisme, la musique répétitive et le théâtre de l'absurde.")
-# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/erik_satie.jpg")].first)
-# satie.picture.attach(io: file, filename: 'erik_satie.jpg', content_type: 'image/jpg')
-# satie.save!
+puts "Birth of Erik Satie 👼 (1866 – 1925)"
+satie = Composer.new(name: "E. Satie", bio: "Éric Alfred Leslie Satie (17 May 1866 – 1 July 1925) Associé un temps au symbolisme, mais inclassable, il a été reconnu comme précurseur de plusieurs mouvements, dont le surréalisme, le minimalisme, la musique répétitive et le théâtre de l'absurde.")
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/composers/erik_satie.jpg")].first)
+satie.picture.attach(io: file, filename: 'erik_satie.jpg', content_type: 'image/jpg')
+satie.save!
 
-# puts "6 > Erik_Satie_-_Gymnopedie_No.1 🎼"
-# gymnopedie_no_1 = Score.new(title: "Gymnopédie N°1", score_creation_date: "1897")
-# gymnopedie_no_1.composer = satie
-# gymnopedie_no_1.collection = nathalie_first_collection
-# file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Erik_Satie_Gymnopedie_No_1.pdf")].first)
-# gymnopedie_no_1.file.attach(io: file, filename: 'Erik_Satie_Gymnopedie_No_1.pdf', content_type: 'application/pdf')
-# cover = File.open(File.join(Rails.root,'app/assets/images/covers/6.png'))
-# gymnopedie_no_1.cover.attach(io: cover, filename: 'cover_6', content_type: 'image/png')
-# gymnopedie_no_1.save!
-# push_pages_to_cloudinary(file, gymnopedie_no_1)
+puts "6 > Erik_Satie_-_Gymnopedie_No.1 🎼"
+gymnopedie_no_1 = Score.new(title: "Gymnopédie N°1", score_creation_date: "1897")
+gymnopedie_no_1.composer = satie
+gymnopedie_no_1.collection = bastien_first_collection
+file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Erik_Satie_Gymnopedie_No_1.pdf")].first)
+gymnopedie_no_1.file.attach(io: file, filename: 'Erik_Satie_Gymnopedie_No_1.pdf', content_type: 'application/pdf')
+cover = File.open(File.join(Rails.root,'app/assets/images/covers/11.png'))
+gymnopedie_no_1.cover.attach(io: cover, filename: 'cover_11', content_type: 'image/png')
+gymnopedie_no_1.save!
+push_pages_to_cloudinary(file, gymnopedie_no_1)
 
 puts "Birth of Ennio Morricone 👼 (1928 – 2020)"
 morricone = Composer.new(name: "E. Morricone", bio: "Ennio Morricone (1928 – 2020) was an Italian composer, orchestrator, conductor, and trumpet player who wrote music in a wide range of styles. With more than 400 scores for cinema and television, as well as more than 100 classical works, Morricone is widely considered as one of the most prolific and greatest film composers of all time.")
@@ -149,7 +174,7 @@ morricone.save!
 puts "5 > Gabriels_Oboe_-_Ennio_Morricone 🎼"
 gabriels_oboe = Score.new(title: "Gabriel's Oboe", score_creation_date: "1986")
 gabriels_oboe.composer = morricone
-gabriels_oboe.collection = nathalie_first_collection
+gabriels_oboe.collection = bastien_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Gabriels_Oboe_Ennio_Morricone.pdf")].first)
 gabriels_oboe.file.attach(io: file, filename: 'Gabriels_Oboe_Ennio_Morricone.pdf', content_type: 'application/pdf')
 cover = File.open(File.join(Rails.root,'app/assets/images/covers/5.png'))
@@ -183,7 +208,7 @@ schubert.save!
 puts "9  > Franz Schubert - Standchen from Schwanengesang Serenade for Piano 🎼"
 standchen_from_Schwanengesang_Serenade_for_Piano = Score.new(title: "Ständchen (for piano)", score_creation_date: "1828")
 standchen_from_Schwanengesang_Serenade_for_Piano.composer = schubert
-standchen_from_Schwanengesang_Serenade_for_Piano.collection = nathalie_first_collection
+standchen_from_Schwanengesang_Serenade_for_Piano.collection = bastien_first_collection
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf")].first)
 standchen_from_Schwanengesang_Serenade_for_Piano.file.attach(io: file, filename: 'Schubert_Standchen_from_Schwanengesang_Serenade_for_Piano_Four_Hands.pdf', content_type: 'application/pdf')
 cover = File.open(File.join(Rails.root,'app/assets/images/covers/6.png'))
@@ -216,7 +241,7 @@ offenbach.save!
 
 puts "11  > Bolero de Charles Martel - Hans Zimmer 🎼"
 bolero = Score.new(title: "Boléro de C. Martel", score_creation_date: "1859")
-bolero.collection = nathalie_first_collection
+bolero.collection = pierre_first_collection
 bolero.composer = offenbach
 file = URI.open(Dir[File.join(File.dirname(__FILE__), "../app/assets/images/scores/bolero_de_charles_martel.pdf")].first)
 bolero.file.attach(io: file, filename: 'bolero.pdf', content_type: 'application/pdf')
@@ -246,3 +271,20 @@ cover = File.open(File.join(Rails.root,'app/assets/images/covers/13.png'))
 sonata.cover.attach(io: cover, filename: 'cover_13', content_type: 'image/png')
 sonata.save!
 push_pages_to_cloudinary(file, sonata)
+
+
+puts "Creating Collaborations"
+collaboration_1 = Collaboration.new(user: gael, score: befraget_mich_ein_zartes_kind)
+collaboration_1.save
+collaboration_2 = Collaboration.new(user: gael, score: gabriels_oboe)
+collaboration_2.save
+collaboration_3 = Collaboration.new(user: bastien, score: sonata)
+collaboration_3.save
+collaboration_4 = Collaboration.new(user: pierre, score: time)
+collaboration_4.save
+collaboration_5 = Collaboration.new(user: nathalie, score: all_of_me)
+collaboration_5.save
+collaboration_6 = Collaboration.new(user: pierre, score: standchen_from_Schwanengesang_Serenade_for_Piano)
+collaboration_6.save
+collaboration_7 = Collaboration.new(user: bastien, score: bolero)
+collaboration_7.save
